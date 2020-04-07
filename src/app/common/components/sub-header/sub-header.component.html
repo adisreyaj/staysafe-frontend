@@ -1,15 +1,21 @@
 <section class="sub-header">
   <div class="container">
-    <ul>
-      <li>
-        <p>Helpline Number: <span>+91-11-23978046</span></p>
+    <ul [fxHide.lt-md]="true">
+      <li *ngFor="let item of contactInfo">
+        <p>
+          {{ item?.label }}: <span>{{ item?.data }}</span>
+        </p>
       </li>
+    </ul>
+    <ul [fxHide.gt-sm]="true">
       <li>
-        <p>Toll Free: <span>1075</span></p>
+        <p>
+          {{ contactInfo[selectedItemMobile]?.label }}: <span>{{ contactInfo[selectedItemMobile]?.data }}</span>
+        </p>
       </li>
-      <li>
-        <p>Helpline Email ID: <span>ncov2019@gov.in</span></p>
-      </li>
+      <div class="mobile-next" fxLayoutAlign="center center" (click)="changeInfo()">
+        <img src="../../../../assets/images/icons/arrow-right.svg" alt="Arrow" />
+      </div>
     </ul>
   </div>
 </section>
