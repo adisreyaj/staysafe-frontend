@@ -1,0 +1,28 @@
+/*
+ * File: _headings.scss
+ * Project: staysafe-frontend
+ * File Created: Tuesday, 7th April 2020 11:49:01 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Tuesday, 7th April 2020 11:54:10 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/fonts';
+@import 'settings/colors';
+.headings {
+  margin: 20px 0;
+}
+.main-heading {
+  font-size: 20px;
+  font-family: $heading-font;
+  font-weight: 600;
+  color: $text--dark;
+}
+
+.sub-heading {
+  font-size: 1rem;
+  font-weight: 400;
+  color: $text--light;
+}

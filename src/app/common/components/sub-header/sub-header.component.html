@@ -1,13 +1,13 @@
 <section class="sub-header">
   <div class="container">
-    <ul [fxHide.lt-md]="true">
+    <ul fxHide.lt-md="true">
       <li *ngFor="let item of contactInfo">
         <p>
           {{ item?.label }}: <span>{{ item?.data }}</span>
         </p>
       </li>
     </ul>
-    <ul [fxHide.gt-sm]="true">
+    <ul fxHide.gt-sm="true">
       <li>
         <p>
           {{ contactInfo[selectedItemMobile]?.label }}: <span>{{ contactInfo[selectedItemMobile]?.data }}</span>
