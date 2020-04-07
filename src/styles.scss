@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * File: styles.scss
+ * Project: staysafe-frontend
+ * File Created: Sunday, 5th April 2020 1:46:10 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Tuesday, 7th April 2020 9:47:50 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'partials/settings/fonts';
+@import 'partials/global';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $global-font;
+}

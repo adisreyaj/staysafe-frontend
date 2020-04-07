@@ -1,0 +1,21 @@
+/*
+ * File: _global.scss
+ * Project: staysafe-frontend
+ * File Created: Tuesday, 7th April 2020 8:59:48 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Tuesday, 7th April 2020 9:02:33 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 32px;
+  margin: 0 auto;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,121 @@
+/*
+ * File: _fonts.scss
+ * Project: staysafe-frontend
+ * File Created: Tuesday, 7th April 2020 7:50:30 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Tuesday, 7th April 2020 8:14:45 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-bold.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-bold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-bold.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-bold.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-bold.svg#sf_pro_textbold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-heavy.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-heavy.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-heavy.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-heavy.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-heavy.svg#sf_pro_textheavy') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-light.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-light.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-light.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-light.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-light.svg#sf_pro_textlight') format('svg');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-medium.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-medium.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-medium.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-medium.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-medium.svg#sf_pro_textmedium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-regular.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-regular.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-regular.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-regular.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-regular.svg#sf_pro_textregular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-semibold.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-semibold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-semibold.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-semibold.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-semibold.svg#sf_pro_textsemibold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/** Ultra Light */
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 100;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff');
+}
+
+/** Thin */
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 200;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff');
+}
+
+/** Regular */
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 400;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
+}
+
+/** Medium */
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 500;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff');
+}
+
+/** Semi Bold */
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 600;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff');
+}
+
+/** Bold */
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff');
+}
+
+$global-font: 'SFProText', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif !default;
+$heading-font: 'SFProDisplay', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif !default;

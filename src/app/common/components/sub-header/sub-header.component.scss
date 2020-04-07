@@ -1,0 +1,30 @@
+/*
+ * File: sub-header.component.scss
+ * Project: staysafe-frontend
+ * File Created: Tuesday, 7th April 2020 8:16:00 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Tuesday, 7th April 2020 9:04:00 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/colors';
+
+.sub-header {
+  height: 40px;
+  background-color: $primary-bg--light;
+  ul {
+    height: 40px;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      span {
+        color: $primary;
+      }
+    }
+  }
+}

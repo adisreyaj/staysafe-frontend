@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="container">
+    <div class="header__left">
+      <div class="header__logo">
+        <img src="../../../../assets/images/logo.svg" alt="StaySafe" />
+      </div>
+      <nav class="header__nav-primary">
+        <ul>
+          <li class="nav-item" [routerLink]="['/']" routerLinkActive="active">
+            <p>Overview</p>
+          </li>
+          <li class="nav-item" [routerLink]="['/news']" routerLinkActive="active"><p>Latest News</p></li>
+          <li class="nav-item" [routerLink]="['/learn']" routerLinkActive="active"><p>Learn</p></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header__right">
+      <div class="header__mobile-menu">
+        <img class="header__mobile-menu-icon" src="../../../../assets/images/icons/globe.svg" alt="" />
+        <img class="header__mobile-menu-icon" src="../../../../assets/images/icons/menu.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</header>
