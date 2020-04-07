@@ -1,0 +1,10 @@
+<div class="button-group" fxLayout="row nowrap">
+  <button
+    *ngFor="let button of buttons"
+    class="button-group__item"
+    [routerLink]="[button?.link]"
+    routerLinkActive="active"
+  >
+    {{ button?.label }}
+  </button>
+</div>

@@ -18,9 +18,10 @@ import { HeaderComponent } from './header/header.component';
 import { SubHeaderComponent } from './sub-header/sub-header.component';
 import { FooterComponent } from './footer/footer.component';
 import { QuickStatsComponent } from './quick-stats/quick-stats.component';
+import { ButtonGroupComponent } from './button-group/button-group.component';
 
 @NgModule({
-  declarations: [HeaderComponent, SubHeaderComponent, FooterComponent, QuickStatsComponent],
+  declarations: [HeaderComponent, SubHeaderComponent, FooterComponent, QuickStatsComponent, ButtonGroupComponent],
   imports: [CommonModule, RouterModule, FlexLayoutModule],
   exports: [HeaderComponent, SubHeaderComponent, FooterComponent, QuickStatsComponent],
 })
