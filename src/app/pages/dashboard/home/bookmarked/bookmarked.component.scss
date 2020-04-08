@@ -1,0 +1,26 @@
+/*
+ * File: bookmarked.component.scss
+ * Project: staysafe-frontend
+ * File Created: Thursday, 9th April 2020 12:56:17 am
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Thursday, 9th April 2020 1:10:55 am
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+:host {
+  width: 100%;
+}
+
+@import 'settings/colors';
+.no-bookmarks {
+  p {
+    color: $text--light;
+  }
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $text--dark;
+  }
+}

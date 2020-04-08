@@ -4,12 +4,15 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 11:06:27 pm
+ * Last Modified: Thursday, 9th April 2020 1:11:33 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-
 .section {
   width: 100%;
+  margin: 20px 0;
+  &:nth-child(1) {
+    margin-top: 0 !important;
+  }
 }

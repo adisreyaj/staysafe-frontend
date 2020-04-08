@@ -18,9 +18,10 @@ import { ComponentModule } from 'src/app/common/components/component.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StateStatsComponent } from './state-stats/state-stats.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BookmarkedComponent } from './bookmarked/bookmarked.component';
 
 @NgModule({
-  declarations: [HomeComponent, StateStatsComponent],
+  declarations: [HomeComponent, StateStatsComponent, BookmarkedComponent],
   imports: [CommonModule, HomeRoutingModule, FlexLayoutModule, ComponentModule, ReactiveFormsModule],
 })
 export class HomeModule {}

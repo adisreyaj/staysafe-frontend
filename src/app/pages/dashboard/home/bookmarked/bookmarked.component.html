@@ -1,0 +1,17 @@
+<div>
+  <app-heading [data]="tableHeading"> </app-heading>
+  <ng-container *ngIf="data && data.length > 0; else noBookmarks">
+    <app-table [dataSource]="data"></app-table>
+  </ng-container>
+  <ng-template #noBookmarks>
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="6px" class="no-bookmarks">
+      <p class="no-bookmarks__title">No Bookmarks Added</p>
+      <div fxLayoutAlign="start center" fxLayoutGap="8px">
+        <img src="../../../../../assets/images/icons/bookmark.svg" alt="Bookmark" />
+        <p>
+          Click on the icon besides Location to Bookmark it.
+        </p>
+      </div>
+    </div>
+  </ng-template>
+</div>
