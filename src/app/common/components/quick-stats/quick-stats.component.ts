@@ -4,12 +4,13 @@
  * File Created: Tuesday, 7th April 2020 11:15:44 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 8:57:58 pm
+ * Last Modified: Wednesday, 8th April 2020 11:18:11 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { HeadingData } from '../heading/heading.component';
 
 export interface QuickStatsData {
   label: QuickInsightLabels;
@@ -32,6 +33,11 @@ export enum QuickInsightLabels {
 })
 export class QuickStatsComponent implements OnInit {
   @Input() quickStats: QuickStatsData[] = [];
+
+  quickStatsHeading: HeadingData = {
+    main: 'Quick Stats',
+    sub: 'Last Update: 23mins ago',
+  };
   constructor() {}
 
   ngOnInit(): void {}

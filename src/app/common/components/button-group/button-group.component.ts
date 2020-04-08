@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 12:26:36 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 9:03:21 pm
+ * Last Modified: Thursday, 9th April 2020 12:40:55 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -20,13 +20,15 @@ export class ButtonGroupComponent implements OnInit {
   @Input() buttons = [
     {
       label: 'India',
-      link: '/india',
+      active: true,
     },
     {
       label: 'Worldwide',
-      link: '/',
+      link: false,
     },
   ];
+
+  @Input() type: 'secondary' | 'primary' = 'primary';
   constructor() {}
 
   ngOnInit(): void {}

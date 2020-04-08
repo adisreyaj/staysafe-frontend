@@ -1,0 +1,65 @@
+/*
+ * File: _buttons.scss
+ * Project: staysafe-frontend
+ * File Created: Thursday, 9th April 2020 12:00:19 am
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Thursday, 9th April 2020 12:12:47 am
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/colors';
+@import 'settings/breakpoint';
+
+.btn {
+  padding: 0 20px;
+  height: 36px;
+  border: none;
+  background-color: #fff;
+  border-radius: 3px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  position: relative;
+}
+
+.primary-btn {
+  @extend .btn;
+  background-color: $primary;
+  color: #fff;
+}
+
+.stroked-btn {
+  @extend .btn;
+  background-color: #fff;
+  color: $primary;
+  border: 1px solid $primary;
+  &.btn--accent {
+    color: $accent !important;
+    border: 1px solid $accent !important;
+  }
+}
+
+.btn-pre-icon {
+  display: flex;
+  align-items: center;
+  .btn-icon {
+    margin-right: 9px;
+    img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .btn-pre-icon {
+    .btn-icon {
+      margin-right: 0 !important;
+    }
+    .btn-text {
+      display: none;
+    }
+  }
+}

@@ -1,12 +1,5 @@
 <div class="quick-stats" fxLayout="column wrap">
-  <section class="headings main-heading">
-    <p class="main-heading">
-      Quick Stats
-    </p>
-    <p class="sub-heading">
-      Last Updates: 23 Minutes Ago
-    </p>
-  </section>
+  <app-heading [data]="quickStatsHeading"></app-heading>
   <section class="quick-stats__content" fxLayout="row wrap">
     <article class="quick-stats__item" *ngFor="let stats of quickStats" fxFlex="50" fxFlex.gt-md="20">
       <p class="quick-stats__item-label">{{ stats?.label }}</p>

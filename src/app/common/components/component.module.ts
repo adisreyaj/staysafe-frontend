@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:16:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 9:18:02 pm
+ * Last Modified: Thursday, 9th April 2020 12:34:17 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,6 +12,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
@@ -20,6 +21,7 @@ import { FooterComponent } from './footer/footer.component';
 import { QuickStatsComponent } from './quick-stats/quick-stats.component';
 import { ButtonGroupComponent } from './button-group/button-group.component';
 import { TableComponent } from './table/table.component';
+import { HeadingComponent } from './heading/heading.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,16 @@ import { TableComponent } from './table/table.component';
     QuickStatsComponent,
     ButtonGroupComponent,
     TableComponent,
+    HeadingComponent,
   ],
-  imports: [CommonModule, RouterModule, FlexLayoutModule],
-  exports: [HeaderComponent, SubHeaderComponent, FooterComponent, QuickStatsComponent, TableComponent],
+  imports: [CommonModule, RouterModule, FlexLayoutModule, FormsModule, ReactiveFormsModule],
+  exports: [
+    HeaderComponent,
+    SubHeaderComponent,
+    FooterComponent,
+    QuickStatsComponent,
+    TableComponent,
+    HeadingComponent,
+  ],
 })
 export class ComponentModule {}

@@ -1,10 +1,5 @@
-<div class="button-group" fxLayout="row nowrap">
-  <button
-    *ngFor="let button of buttons"
-    class="button-group__item"
-    [routerLink]="[button?.link]"
-    routerLinkActive="active"
-  >
+<div class="button-group" fxLayout="row nowrap" [ngClass]="{ secondary: type === 'secondary' }">
+  <button *ngFor="let button of buttons" class="button-group__item" [ngClass]="{ active: button?.active }">
     {{ button?.label }}
   </button>
 </div>

@@ -1,13 +1,28 @@
 <div>
-  <section class="headings main-heading">
-    <p class="main-heading">
-      COVID-19 Statistics
-    </p>
-    <p class="sub-heading">
-      The coronavirus COVID-19 is affecting 209 countries and territories around the world and 2 international
-      conveyances. The day is reset after midnight IST +530.
-    </p>
-  </section>
+  <app-heading [data]="tableHeading">
+    <div class="table__heading-actions" fxLayout="row wrap" fxLayoutAlign="space-between center">
+      <app-button-group
+        class="table-heading__date-switcher"
+        [buttons]="[
+          { label: 'Today', active: true },
+          { label: 'Yesterday', active: false }
+        ]"
+        [type]="'secondary'"
+      ></app-button-group>
+      <div class="form-field form-field--icon table-heading__search">
+        <img src="../../../../assets/images/icons/search.svg" alt="Search" class="form-field__pre-icon" />
+        <input type="text" name="" id="" placeholder="Start typing to search" [formControl]="searchTerm" />
+      </div>
+      <div class="table-heading__report">
+        <button class="stroked-btn btn-pre-icon btn--accent">
+          <span class="btn-icon"> <img src="../../../../assets/images/icons/alert.svg" alt="Report" /> </span>
+          <p class="btn-text">
+            Report Cases
+          </p>
+        </button>
+      </div>
+    </div>
+  </app-heading>
   <div class="table" fxLayout="column">
     <header class="table__header" fxHide.lt-sm="true">
       <div class="table__header-item" fxFlex="45">
@@ -29,7 +44,7 @@
     </header>
 
     <div class="table__body">
-      <div class="table__item-row" *ngFor="let item of data">
+      <div class="table__item-row" *ngFor="let item of dataSource">
         <article class="table__body-column" fxFlex="45">
           {{ item?.state }}
         </article>
