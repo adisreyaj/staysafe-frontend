@@ -7,7 +7,7 @@
 
   <ng-container *ngIf="indiaStates$ | async as indiaStates">
     <section class="section state-stats">
-      <app-table [data]="indiaStates"></app-table>
+      <app-state-stats [data]="indiaStates"></app-state-stats>
     </section>
   </ng-container>
 </main>

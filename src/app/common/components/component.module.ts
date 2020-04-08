@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:16:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 12:34:17 am
+ * Last Modified: Thursday, 9th April 2020 12:51:00 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,7 +12,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
@@ -33,11 +32,12 @@ import { HeadingComponent } from './heading/heading.component';
     TableComponent,
     HeadingComponent,
   ],
-  imports: [CommonModule, RouterModule, FlexLayoutModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, FlexLayoutModule],
   exports: [
     HeaderComponent,
     SubHeaderComponent,
     FooterComponent,
+    ButtonGroupComponent,
     QuickStatsComponent,
     TableComponent,
     HeadingComponent,
