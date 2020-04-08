@@ -1,3 +1,13 @@
-<main class="inner-container">
-  <app-quick-stats></app-quick-stats>
+<main class="inner-container" fxLayout="column">
+  <ng-container *ngIf="quickStats$ | async as quickStats">
+    <section class="section quick-stats">
+      <app-quick-stats [quickStats]="quickStats"></app-quick-stats>
+    </section>
+  </ng-container>
+
+  <ng-container *ngIf="indiaStates$ | async as indiaStates">
+    <section class="section state-stats">
+      <app-table [data]="indiaStates"></app-table>
+    </section>
+  </ng-container>
 </main>

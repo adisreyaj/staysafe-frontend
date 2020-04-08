@@ -1,0 +1,51 @@
+<div>
+  <section class="headings main-heading">
+    <p class="main-heading">
+      COVID-19 Statistics
+    </p>
+    <p class="sub-heading">
+      The coronavirus COVID-19 is affecting 209 countries and territories around the world and 2 international
+      conveyances. The day is reset after midnight IST +530.
+    </p>
+  </section>
+  <div class="table" fxLayout="column">
+    <header class="table__header" fxHide.lt-sm="true">
+      <div class="table__header-item" fxFlex="45">
+        Country/State
+      </div>
+      <div class="table__header-item" fxFlex="15">Total Cases</div>
+      <div class="table__header-item" fxFlex="10">Active</div>
+      <div class="table__header-item" fxFlex="10">Recovered</div>
+      <div class="table__header-item" fxFlex="10">Deceased</div>
+    </header>
+    <header class="table__header" fxHide.gt-xs="true">
+      <div class="table__header-item" fxFlex="45">
+        Country/State
+      </div>
+      <div class="table__header-item" fxFlex="15">Cases</div>
+      <div class="table__header-item" fxFlex="10">Actv</div>
+      <div class="table__header-item" fxFlex="10">Rcvd</div>
+      <div class="table__header-item" fxFlex="10">Dcsd</div>
+    </header>
+
+    <div class="table__body">
+      <div class="table__item-row" *ngFor="let item of data">
+        <article class="table__body-column" fxFlex="45">
+          {{ item?.state }}
+        </article>
+        <article class="table__body-column" fxFlex="15">
+          {{ item?.confirmed }}
+        </article>
+        <article class="table__body-column" fxFlex="10">
+          {{ item?.active }}
+        </article>
+        <article class="table__body-column" fxFlex="10">
+          {{ item?.recovered }}
+        </article>
+        <article class="table__body-column" fxFlex="10">
+          {{ item?.deaths }}
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

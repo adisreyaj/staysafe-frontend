@@ -10,9 +10,9 @@
   <section class="quick-stats__content" fxLayout="row wrap">
     <article class="quick-stats__item" *ngFor="let stats of quickStats" fxFlex="50" fxFlex.gt-md="20">
       <p class="quick-stats__item-label">{{ stats?.label }}</p>
+      <p class="quick-stats__item-delta" *ngIf="stats?.delta">[{{ stats?.delta }}]</p>
       <p class="quick-stats__item-value">
-        {{ stats?.value }}
-        <span class="quick-stats__item-delta" *ngIf="stats?.delta"> [{{ stats?.delta }}] </span>
+        {{ stats?.value | number }}
       </p>
     </article>
   </section>

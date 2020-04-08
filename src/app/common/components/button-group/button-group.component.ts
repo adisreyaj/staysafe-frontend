@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 12:26:36 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 12:37:10 am
+ * Last Modified: Wednesday, 8th April 2020 9:03:21 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -20,11 +20,11 @@ export class ButtonGroupComponent implements OnInit {
   @Input() buttons = [
     {
       label: 'India',
-      link: '/',
+      link: '/india',
     },
     {
       label: 'Worldwide',
-      link: '/world',
+      link: '/',
     },
   ];
   constructor() {}
