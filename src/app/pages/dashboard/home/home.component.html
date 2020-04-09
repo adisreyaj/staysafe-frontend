@@ -5,15 +5,15 @@
     </section>
   </ng-container>
 
-  <ng-container>
+  <ng-container *ngIf="bookmarkedStates$ | async as bookmarkedStates">
     <section class="section bookmarks">
-      <app-bookmarked></app-bookmarked>
+      <app-bookmarked [data]="bookmarkedStates" (bookmarkChanged)="bookmarkChanged()"></app-bookmarked>
     </section>
   </ng-container>
 
   <ng-container *ngIf="indiaStates$ | async as indiaStates">
     <section class="section state-stats">
-      <app-state-stats [data]="indiaStates"></app-state-stats>
+      <app-state-stats [data]="indiaStates" (bookmarkChanged)="bookmarkChanged()"></app-state-stats>
     </section>
   </ng-container>
 </main>

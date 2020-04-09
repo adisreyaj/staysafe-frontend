@@ -1,7 +1,7 @@
 <div>
   <app-heading [data]="tableHeading"> </app-heading>
   <ng-container *ngIf="data && data.length > 0; else noBookmarks">
-    <app-table [dataSource]="data"></app-table>
+    <app-table [dataSource]="data" (bookMarked)="bookMarked($event)"></app-table>
   </ng-container>
   <ng-template #noBookmarks>
     <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="6px" class="no-bookmarks">

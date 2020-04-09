@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 11:15:44 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 11:18:11 pm
+ * Last Modified: Thursday, 9th April 2020 10:38:45 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -40,5 +40,7 @@ export class QuickStatsComponent implements OnInit {
   };
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log({ stat: this.quickStats });
+  }
 }

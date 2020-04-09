@@ -23,5 +23,5 @@
       </div>
     </div>
   </app-heading>
-  <app-table [dataSource]="dataSource"></app-table>
+  <app-table [dataSource]="dataSource" (bookMarked)="bookMarked($event)"></app-table>
 </div>

@@ -4,16 +4,17 @@
  * File Created: Thursday, 9th April 2020 12:47:16 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 12:50:25 am
+ * Last Modified: Thursday, 9th April 2020 10:08:13 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
 import { HeadingData } from '../../../../common/components/heading/heading.component';
+import { StorageService } from '../../../../common/services/storage.service';
 @Component({
   selector: 'app-state-stats',
   templateUrl: './state-stats.component.html',
@@ -28,12 +29,19 @@ export class StateStatsComponent implements OnInit {
   };
   dataSource = [];
   searchTerm: FormControl = new FormControl('');
-  constructor() {}
+
+  @Output() bookmarkChanged = new EventEmitter();
+  constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
     this.dataSource = [...this.data];
     this.searchTerm.valueChanges.pipe(debounceTime(500)).subscribe((data) => {
       this.dataSource = [...this.data].filter((item) => item.state.toLowerCase().includes(data.toLowerCase()));
     });
+  }
+
+  bookMarked(code: string) {
+    this.storageService.addBookmark(code);
+    this.bookmarkChanged.emit();
   }
 }
