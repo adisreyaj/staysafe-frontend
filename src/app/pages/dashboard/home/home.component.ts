@@ -4,14 +4,14 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 10:39:47 pm
+ * Last Modified: Friday, 10th April 2020 12:34:11 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
+import { map, filter, tap } from 'rxjs/operators';
 import { QuickStatsData, QuickInsightLabels } from 'src/app/common/components/quick-stats/quick-stats.component';
 import { DataService } from 'src/app/common/services/data.service';
 import { StateData } from '../../../common/interfaces/india.interface';
@@ -24,8 +24,15 @@ import { StorageService } from '../../../common/services/storage.service';
 })
 export class HomeComponent implements OnInit {
   quickStats$: Observable<QuickStatsData[]>;
-  indiaStates$: Observable<StateData[]>;
-  bookmarkedStates$: Observable<StateData[]>;
+
+  private bookmarkedStatesSubject = new Subject<StateData[]>();
+  private indiaStatesSubject = new Subject<StateData[]>();
+
+  bookmarkedStates$: Observable<StateData[]> = this.bookmarkedStatesSubject.asObservable();
+  indiaStates$: Observable<StateData[]> = this.indiaStatesSubject.asObservable();
+
+  bookmarkedList: StateData[] = [];
+  statesList: StateData[] = [];
   constructor(private dataService: DataService, private storageService: StorageService) {}
 
   ngOnInit(): void {
@@ -34,15 +41,22 @@ export class HomeComponent implements OnInit {
     this.getBookmarkedStates();
   }
 
-  bookmarkChanged() {
-    this.getBookmarkedStates();
-    this.getIndiaStates();
+  bookmarkChanged(stateCode: string) {
+    const state = [...this.bookmarkedList].find((item) => item.statecode === stateCode);
+    if (state) this.bookmarkedList = [...this.bookmarkedList].filter((item) => item.statecode !== stateCode);
+    else
+      this.bookmarkedList = [...this.bookmarkedList, [...this.statesList].find((item) => item.statecode === stateCode)];
+    this.bookmarkedStatesSubject.next(this.bookmarkedList);
+    this.statesList = [...this.statesList].map((state) => {
+      if (state.statecode === stateCode) state.bookmarked = !state.bookmarked;
+      return state;
+    });
+    console.log(this.statesList.find((item) => item.statecode === stateCode));
+    this.indiaStatesSubject.next(this.statesList);
   }
   private getQuickStats() {
     this.quickStats$ = this.dataService.getWorldQuickStats().pipe(
       map((data) => {
-        console.log({ data });
-
         if (data) {
           return [
             {
@@ -78,22 +92,32 @@ export class HomeComponent implements OnInit {
 
   private getBookmarkedStates() {
     const bookmarked = this.storageService.getBookmarkedIndianStatesData();
-    this.bookmarkedStates$ = this.dataService.getIndiaStatesData().pipe(
-      map((states) => {
-        return states.filter((state) => bookmarked.includes(state.statecode));
-      }),
-      map((states) => {
-        return this.addBookmarkStatusToData(states);
-      })
-    );
+    this.dataService
+      .getIndiaStatesData()
+      .pipe(
+        map((states) => {
+          return states.filter((state) => bookmarked.includes(state.statecode));
+        }),
+        map((states) => {
+          this.bookmarkedList = states;
+          return this.addBookmarkStatusToData(states);
+        })
+      )
+      .subscribe((data) => this.bookmarkedStatesSubject.next(data));
   }
 
   private getIndiaStates() {
-    this.indiaStates$ = this.dataService.getIndiaStatesData().pipe(
-      map((states) => {
-        return this.addBookmarkStatusToData(states);
-      })
-    );
+    this.dataService
+      .getIndiaStatesData()
+      .pipe(
+        map((states) => {
+          return this.addBookmarkStatusToData(states);
+        })
+      )
+      .subscribe((data) => {
+        this.indiaStatesSubject.next(data);
+        this.statesList = data;
+      });
   }
 
   addBookmarkStatusToData(states: StateData[]) {

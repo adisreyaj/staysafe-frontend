@@ -4,7 +4,7 @@
  * File Created: Thursday, 9th April 2020 12:56:17 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 10:36:59 pm
+ * Last Modified: Thursday, 9th April 2020 11:54:40 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -32,6 +32,6 @@ export class BookmarkedComponent implements OnInit {
 
   bookMarked(code: string) {
     this.storageService.addBookmark(code);
-    this.bookmarkChanged.emit();
+    this.bookmarkChanged.emit(code);
   }
 }

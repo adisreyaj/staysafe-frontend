@@ -4,13 +4,13 @@
  * File Created: Wednesday, 8th April 2020 9:59:21 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 10:13:55 pm
+ * Last Modified: Friday, 10th April 2020 12:23:23 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 export interface StateData {
-  bookmark?: boolean;
+  bookmarked?: boolean;
   active: string;
   confirmed: string;
   deaths: string;
