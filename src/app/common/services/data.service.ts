@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 3:50:11 pm
+ * Last Modified: Friday, 10th April 2020 5:32:28 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -34,6 +34,9 @@ export class DataService {
   }
 
   getIndiaNews(limit = 10) {
-    return this.http.get<News>(`${this.baseUrl}/news/india/?limit=${limit}`).pipe(map((data) => data.articles));
+    return this.http.get<News>(`${this.baseUrl}/news/india/?limit=${limit}`).pipe(
+      map((data) => data.articles),
+      map((data) => data.filter((news) => news.content)),
+    );
   }
 }

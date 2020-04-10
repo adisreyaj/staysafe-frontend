@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 4:52:03 pm
+ * Last Modified: Friday, 10th April 2020 5:36:25 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   enableNotification() {
+    console.log('🔔 Enabling Noitifations');
     this.afMessaging.requestPermission.pipe(mergeMapTo(this.afMessaging.tokenChanges)).subscribe(
       (token) => {
         console.log('Permission granted! Save to the server!', token);
@@ -142,7 +143,7 @@ export class HomeComponent implements OnInit {
   }
 
   private getLatestNews() {
-    this.topNews$ = this.dataService.getIndiaNews(5);
+    this.topNews$ = this.dataService.getIndiaNews(10);
   }
   private addBookmarkStatusToData(states: StateData[]) {
     return states.map((state) => {
