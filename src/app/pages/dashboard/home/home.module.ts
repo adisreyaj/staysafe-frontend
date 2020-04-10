@@ -4,20 +4,21 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 7:19:00 pm
+ * Last Modified: Friday, 10th April 2020 9:37:55 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ChartsModule } from 'ng2-charts';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { ComponentModule } from 'src/app/common/components/component.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { StateStatsComponent } from './state-stats/state-stats.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BookmarkedComponent } from './bookmarked/bookmarked.component';
 import { TrendsComponent } from './trends/trends.component';
 import { TopNewsComponent } from './top-news/top-news.component';
@@ -33,6 +34,14 @@ import { TimeAgoModule } from '../../../common/pipes/time-ago/time-ago.module';
     TopNewsComponent,
     TopNewsCardComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, FlexLayoutModule, ComponentModule, ReactiveFormsModule, TimeAgoModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    FlexLayoutModule,
+    ComponentModule,
+    ReactiveFormsModule,
+    TimeAgoModule,
+    ChartsModule,
+  ],
 })
 export class HomeModule {}

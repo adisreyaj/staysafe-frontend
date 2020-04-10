@@ -47,9 +47,9 @@
       <app-table [loading]="true"></app-table>
     </section>
   </ng-template>
-  <ng-container>
+  <ng-container *ngIf="chartData$ | async as chartData">
     <section class="section trends">
-      <app-trends></app-trends>
+      <app-trends [data]="chartData"></app-trends>
     </section>
   </ng-container>
   <ng-container>

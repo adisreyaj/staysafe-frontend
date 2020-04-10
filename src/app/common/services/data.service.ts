@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 7:17:04 pm
+ * Last Modified: Friday, 10th April 2020 10:01:11 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -31,6 +31,32 @@ export class DataService {
 
   getIndiaStatesData() {
     return this.http.get<StateData[]>(`${this.baseUrl}/india/states`);
+  }
+
+  getIndiaChartData() {
+    return this.http.get('https://api.covid19india.org/data.json').pipe(
+      map((data: any) => data.cases_time_series),
+      map((data) => {
+        const dates = data.map((item) => item.date);
+        return {
+          labels: dates,
+          items: [
+            {
+              title: 'Total Confirmed',
+              data: data.map((item) => item.totalconfirmed),
+            },
+            {
+              title: 'Total Deaths',
+              data: data.map((item) => item.totaldeceased),
+            },
+            {
+              title: 'Total Recovered',
+              data: data.map((item) => item.totalrecovered),
+            },
+          ],
+        };
+      }),
+    );
   }
 
   getIndiaNews(limit = 10) {
