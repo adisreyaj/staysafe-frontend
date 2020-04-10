@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 8:33:18 pm
+ * Last Modified: Friday, 10th April 2020 9:12:39 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
     this.getIndiaStates();
     this.getBookmarkedStates();
     this.listenNotifications();
-    // this.getLatestNews();
+    this.getLatestNews();
   }
 
   enableNotification() {
