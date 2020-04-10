@@ -22,4 +22,14 @@
       <app-state-stats [data]="indiaStates" (bookmarkChanged)="bookmarkChanged($event)"></app-state-stats>
     </section>
   </ng-container>
+  <ng-container>
+    <section class="section trends">
+      <app-trends></app-trends>
+    </section>
+  </ng-container>
+  <ng-container>
+    <section class="section top-news" *ngIf="topNews$ | async as topNews">
+      <app-top-news [data]="topNews"></app-top-news>
+    </section>
+  </ng-container>
 </main>

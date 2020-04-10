@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 10:38:30 pm
+ * Last Modified: Friday, 10th April 2020 3:50:11 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,6 +16,8 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { StateData } from '../interfaces/india.interface';
 import { WorldStats } from '../interfaces/world.interface';
+import { News } from '../interfaces/news.interface';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -29,5 +31,9 @@ export class DataService {
 
   getIndiaStatesData() {
     return this.http.get<StateData[]>(`${this.baseUrl}/india/states`);
+  }
+
+  getIndiaNews(limit = 10) {
+    return this.http.get<News>(`${this.baseUrl}/news/india/?limit=${limit}`).pipe(map((data) => data.articles));
   }
 }

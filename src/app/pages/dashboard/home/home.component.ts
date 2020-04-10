@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 12:34:11 am
+ * Last Modified: Friday, 10th April 2020 3:50:58 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,6 +16,7 @@ import { QuickStatsData, QuickInsightLabels } from 'src/app/common/components/qu
 import { DataService } from 'src/app/common/services/data.service';
 import { StateData } from '../../../common/interfaces/india.interface';
 import { StorageService } from '../../../common/services/storage.service';
+import { NewsArticle } from '../../../common/interfaces/news.interface';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,7 @@ import { StorageService } from '../../../common/services/storage.service';
 })
 export class HomeComponent implements OnInit {
   quickStats$: Observable<QuickStatsData[]>;
+  topNews$: Observable<NewsArticle[]>;
 
   private bookmarkedStatesSubject = new Subject<StateData[]>();
   private indiaStatesSubject = new Subject<StateData[]>();
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
     this.getQuickStats();
     this.getIndiaStates();
     this.getBookmarkedStates();
+    this.getLatestNews();
   }
 
   bookmarkChanged(stateCode: string) {
@@ -86,7 +89,7 @@ export class HomeComponent implements OnInit {
             },
           ];
         }
-      })
+      }),
     );
   }
 
@@ -101,7 +104,7 @@ export class HomeComponent implements OnInit {
         map((states) => {
           this.bookmarkedList = states;
           return this.addBookmarkStatusToData(states);
-        })
+        }),
       )
       .subscribe((data) => this.bookmarkedStatesSubject.next(data));
   }
@@ -112,7 +115,7 @@ export class HomeComponent implements OnInit {
       .pipe(
         map((states) => {
           return this.addBookmarkStatusToData(states);
-        })
+        }),
       )
       .subscribe((data) => {
         this.indiaStatesSubject.next(data);
@@ -120,7 +123,10 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  addBookmarkStatusToData(states: StateData[]) {
+  private getLatestNews() {
+    this.topNews$ = this.dataService.getIndiaNews(5);
+  }
+  private addBookmarkStatusToData(states: StateData[]) {
     return states.map((state) => {
       const bookmarked = this.storageService.checkIfBookmarked(state.statecode);
       Object.assign(state, {
