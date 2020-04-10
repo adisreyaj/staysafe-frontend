@@ -4,7 +4,7 @@
  * File Created: Thursday, 9th April 2020 12:47:16 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 12:23:02 pm
+ * Last Modified: Friday, 10th April 2020 5:02:23 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -35,8 +35,6 @@ export class StateStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = [...this.data];
-    console.log(this.data);
-
     this.searchTerm.valueChanges.pipe(debounceTime(500)).subscribe((data) => {
       this.dataSource = [...this.data].filter((item) => item.state.toLowerCase().includes(data.toLowerCase()));
     });

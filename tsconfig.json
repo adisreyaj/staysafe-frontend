@@ -2,6 +2,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@staysafe/components/*": ["src/app/common/components/*"],
+      "@staysafe/services/*": ["src/app/common/services/*"],
+      "@staysafe/interfaces/*": ["src/app/common/interfaces/*"],
+      "@staysafe/env/*": ["src/environments/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -11,13 +17,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "lib": ["es2018", "dom"],
-    "paths": {
-      "@staysafe/components/*": ["src/app/common/components/*"],
-      "@staysafe/services/*": ["src/app/common/services/*"],
-      "@staysafe/interfaces/*": ["src/app/common/interfaces/*"],
-      "@staysafe/env/*": ["src/app/environments/*"]
-    }
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

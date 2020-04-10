@@ -4,19 +4,21 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 3:50:58 pm
+ * Last Modified: Friday, 10th April 2020 4:52:03 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Component, OnInit } from '@angular/core';
-import { Observable, BehaviorSubject, Subject } from 'rxjs';
-import { map, filter, tap } from 'rxjs/operators';
-import { QuickStatsData, QuickInsightLabels } from 'src/app/common/components/quick-stats/quick-stats.component';
+import { Observable, Subject } from 'rxjs';
+import { map, mergeMapTo } from 'rxjs/operators';
+import { AngularFireMessaging } from '@angular/fire/messaging';
+
+import { QuickStatsData, QuickInsightLabels } from '@staysafe/components/quick-stats/quick-stats.component';
 import { DataService } from 'src/app/common/services/data.service';
-import { StateData } from '../../../common/interfaces/india.interface';
-import { StorageService } from '../../../common/services/storage.service';
-import { NewsArticle } from '../../../common/interfaces/news.interface';
+import { StateData } from '@staysafe/interfaces/india.interface';
+import { StorageService } from '@staysafe/services/storage.service';
+import { NewsArticle } from '@staysafe/interfaces/news.interface';
 
 @Component({
   selector: 'app-home',
@@ -35,13 +37,28 @@ export class HomeComponent implements OnInit {
 
   bookmarkedList: StateData[] = [];
   statesList: StateData[] = [];
-  constructor(private dataService: DataService, private storageService: StorageService) {}
+  constructor(
+    private dataService: DataService,
+    private storageService: StorageService,
+    private afMessaging: AngularFireMessaging,
+  ) {}
 
   ngOnInit(): void {
     this.getQuickStats();
     this.getIndiaStates();
     this.getBookmarkedStates();
     this.getLatestNews();
+  }
+
+  enableNotification() {
+    this.afMessaging.requestPermission.pipe(mergeMapTo(this.afMessaging.tokenChanges)).subscribe(
+      (token) => {
+        console.log('Permission granted! Save to the server!', token);
+      },
+      (error) => {
+        console.error(error);
+      },
+    );
   }
 
   bookmarkChanged(stateCode: string) {
@@ -57,6 +74,7 @@ export class HomeComponent implements OnInit {
     console.log(this.statesList.find((item) => item.statecode === stateCode));
     this.indiaStatesSubject.next(this.statesList);
   }
+
   private getQuickStats() {
     this.quickStats$ = this.dataService.getWorldQuickStats().pipe(
       map((data) => {

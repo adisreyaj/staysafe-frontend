@@ -23,7 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets/fonts", "src/assets/images"],
+            "assets": ["src/favicon.ico", "src/assets/fonts", "src/assets/images", "src/firebase-messaging-sw.js"],
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/scss", "src/assets/scss/partials"]
             },
@@ -108,6 +108,10 @@
               "devServerTarget": "staysafe-frontend:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

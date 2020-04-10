@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+/*
+ * File: notification-banner.component.ts
+ * Project: staysafe-frontend
+ * File Created: Friday, 10th April 2020 12:31:47 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Friday, 10th April 2020 4:48:23 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-notification-banner',
   templateUrl: './notification-banner.component.html',
-  styleUrls: ['./notification-banner.component.scss']
+  styleUrls: ['./notification-banner.component.scss'],
 })
 export class NotificationBannerComponent implements OnInit {
+  @Output() enableClicked = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  enableNotification() {
+    this.enableClicked.emit();
   }
-
 }

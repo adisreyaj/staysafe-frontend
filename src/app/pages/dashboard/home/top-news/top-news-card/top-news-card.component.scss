@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 3:25:37 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 3:45:23 pm
+ * Last Modified: Friday, 10th April 2020 4:16:40 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,10 +16,13 @@
   margin: 20px 0;
   color: $text--light;
   &__title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: $text--dark;
-    margin-bottom: 20px;
+    a {
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: $text--dark;
+      margin-bottom: 20px;
+    }
   }
   &__footer {
     color: $text--dark;
