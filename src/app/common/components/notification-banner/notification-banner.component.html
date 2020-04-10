@@ -5,8 +5,14 @@
   fxLayout="row wrap"
   fxLayout.lt-sm="column"
   fxLayoutAlign.lt-sm="start start"
+  *ngIf="visible"
 >
-  <img src="../../../../assets/images/icons/close.svg" alt="Close" class="notification__close" />
+  <img
+    src="../../../../assets/images/icons/close.svg"
+    alt="Close"
+    class="notification__close"
+    (click)="closeBanner()"
+  />
   <div class="notification__content" fxLayout="column" fxFlex="70">
     <div fxLayoutAlign="start center" fxLayoutGap="24px" fxLayout.lt-sm="column wrap" fxLayoutAlign.lt-sm="start start">
       <img src="../../../../assets/images/icons/noitification.svg" alt="Notifications" class="notification__icon" />

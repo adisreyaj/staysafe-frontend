@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 12:31:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 7:23:47 pm
+ * Last Modified: Friday, 10th April 2020 7:57:12 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -26,5 +26,8 @@ export class NotificationBannerComponent implements OnInit {
 
   enableNotification() {
     this.enableClicked.emit();
+  }
+  closeBanner() {
+    this.visible = false;
   }
 }
