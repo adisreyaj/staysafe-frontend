@@ -4,12 +4,20 @@
  * File Created: Friday, 10th April 2020 12:31:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 7:57:12 pm
+ * Last Modified: Friday, 10th April 2020 8:28:37 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  Input,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-notification-banner',
@@ -20,7 +28,7 @@ import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectionStrategy
 export class NotificationBannerComponent implements OnInit {
   @Output() enableClicked = new EventEmitter();
   @Input() visible = true;
-  constructor() {}
+  constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
 
@@ -29,5 +37,6 @@ export class NotificationBannerComponent implements OnInit {
   }
   closeBanner() {
     this.visible = false;
+    this.cd.detectChanges();
   }
 }
