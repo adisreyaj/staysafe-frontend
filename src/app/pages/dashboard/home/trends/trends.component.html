@@ -1,5 +1,12 @@
 <div>
   <app-heading [data]="tableHeading"> </app-heading>
+  <section class="trends__button-toggle">
+    <app-button-group
+      [buttons]="buttonGroup"
+      [type]="'secondary'"
+      (buttonClicked)="buttonToggled($event)"
+    ></app-button-group>
+  </section>
   <section class="trends__chart">
     <canvas
       baseChart

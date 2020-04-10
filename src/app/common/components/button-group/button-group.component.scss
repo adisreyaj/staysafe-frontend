@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 12:26:36 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 12:13:12 am
+ * Last Modified: Friday, 10th April 2020 10:58:54 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -17,6 +17,7 @@
     border: solid 1px $primary;
     color: $primary;
     font-weight: 600;
+    cursor: pointer;
     background-color: #fff;
     &:nth-of-type(1) {
       border-top-left-radius: 3px;

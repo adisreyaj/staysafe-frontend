@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 10:01:11 pm
+ * Last Modified: Friday, 10th April 2020 10:44:53 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -18,6 +18,7 @@ import { StateData } from '../interfaces/india.interface';
 import { WorldStats } from '../interfaces/world.interface';
 import { News } from '../interfaces/news.interface';
 import { map } from 'rxjs/operators';
+import { TrendsChart } from '@staysafe/interfaces/chart.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -40,7 +41,7 @@ export class DataService {
         const dates = data.map((item) => item.date);
         return {
           labels: dates,
-          items: [
+          cumulative: [
             {
               title: 'Total Confirmed',
               data: data.map((item) => item.totalconfirmed),
@@ -52,6 +53,20 @@ export class DataService {
             {
               title: 'Total Recovered',
               data: data.map((item) => item.totalrecovered),
+            },
+          ],
+          daily: [
+            {
+              title: 'Daily Confirmed',
+              data: data.map((item) => item.dailyconfirmed),
+            },
+            {
+              title: 'Daily Deaths',
+              data: data.map((item) => item.dailydeceased),
+            },
+            {
+              title: 'Daily Recovered',
+              data: data.map((item) => item.dailyrecovered),
             },
           ],
         };

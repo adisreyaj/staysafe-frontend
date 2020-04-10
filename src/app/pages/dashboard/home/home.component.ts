@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 10:02:08 pm
+ * Last Modified: Friday, 10th April 2020 10:44:20 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -21,6 +21,7 @@ import { StorageService } from '@staysafe/services/storage.service';
 import { NewsArticle } from '@staysafe/interfaces/news.interface';
 import { HeadingData } from '@staysafe/components/heading/heading.component';
 import { CommunicationService } from '@staysafe/services/communication.service';
+import { TrendsChart } from '@staysafe/interfaces/chart.interface';
 
 @Component({
   selector: 'app-home',
@@ -32,13 +33,7 @@ export class HomeComponent implements OnInit {
 
   quickStats$: Observable<QuickStatsData[]>;
   topNews$: Observable<NewsArticle[]>;
-  chartData$: Observable<{
-    labels: any;
-    items: {
-      title: string;
-      data: any;
-    }[];
-  }>;
+  chartData$: Observable<TrendsChart>;
 
   private bookmarkedStatesSubject = new Subject<StateData[]>();
   private indiaStatesSubject = new Subject<StateData[]>();
