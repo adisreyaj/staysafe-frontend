@@ -4,12 +4,12 @@
  * File Created: Wednesday, 8th April 2020 11:13:15 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 11:14:26 pm
+ * Last Modified: Saturday, 11th April 2020 1:30:48 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 export interface HeadingData {
   main: string;
@@ -20,6 +20,7 @@ export interface HeadingData {
   selector: 'app-heading',
   templateUrl: './heading.component.html',
   styleUrls: ['./heading.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeadingComponent implements OnInit {
   @Input() data: HeadingData;

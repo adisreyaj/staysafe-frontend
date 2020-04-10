@@ -4,21 +4,20 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 10:44:53 pm
+ * Last Modified: Saturday, 11th April 2020 1:55:07 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
 import { StateData } from '../interfaces/india.interface';
 import { WorldStats } from '../interfaces/world.interface';
 import { News } from '../interfaces/news.interface';
-import { map } from 'rxjs/operators';
-import { TrendsChart } from '@staysafe/interfaces/chart.interface';
 @Injectable({
   providedIn: 'root',
 })
