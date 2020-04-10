@@ -4,7 +4,7 @@
  * File Created: Thursday, 9th April 2020 12:47:16 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 12:16:29 am
+ * Last Modified: Friday, 10th April 2020 12:23:02 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -13,8 +13,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
-import { HeadingData } from '../../../../common/components/heading/heading.component';
-import { StorageService } from '../../../../common/services/storage.service';
+import { HeadingData } from '@staysafe/components/heading/heading.component';
+import { StorageService } from '@staysafe/services/storage.service';
 @Component({
   selector: 'app-state-stats',
   templateUrl: './state-stats.component.html',
