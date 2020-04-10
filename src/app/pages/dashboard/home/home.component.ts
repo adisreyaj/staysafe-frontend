@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 5:36:25 pm
+ * Last Modified: Friday, 10th April 2020 6:48:03 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -19,6 +19,7 @@ import { DataService } from 'src/app/common/services/data.service';
 import { StateData } from '@staysafe/interfaces/india.interface';
 import { StorageService } from '@staysafe/services/storage.service';
 import { NewsArticle } from '@staysafe/interfaces/news.interface';
+import { HeadingData } from '@staysafe/components/heading/heading.component';
 
 @Component({
   selector: 'app-home',
@@ -37,6 +38,11 @@ export class HomeComponent implements OnInit {
 
   bookmarkedList: StateData[] = [];
   statesList: StateData[] = [];
+
+  quickStatsHeading: HeadingData = {
+    main: 'Quick Stats',
+    sub: 'Last Update: 23mins ago',
+  };
   constructor(
     private dataService: DataService,
     private storageService: StorageService,
@@ -47,7 +53,7 @@ export class HomeComponent implements OnInit {
     this.getQuickStats();
     this.getIndiaStates();
     this.getBookmarkedStates();
-    this.getLatestNews();
+    // this.getLatestNews();
   }
 
   enableNotification() {

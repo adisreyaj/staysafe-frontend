@@ -5,11 +5,27 @@
     </section>
   </ng-container>
 
-  <ng-container *ngIf="quickStats$ | async as quickStats">
+  <ng-container *ngIf="quickStats$ | async as quickStats; else quickStatsLoading">
     <section class="section quick-stats">
       <app-quick-stats [quickStats]="quickStats"></app-quick-stats>
     </section>
   </ng-container>
+  <ng-template #quickStatsLoading>
+    <section class="section quick-stats__loading" fxLayout="column wrap">
+      <app-heading [data]="quickStatsHeading"> </app-heading>
+      <div fxLayout="row wrap">
+        <article
+          fxFlex="50"
+          fxFlex.gt-xs="33.33"
+          fxFlex.gt-sm="20"
+          class="quick-stats__loading-item"
+          *ngFor="let item of [0, 0, 0, 0]"
+        >
+          <img src="../../../../assets/images/loading-stats.svg" alt="" />
+        </article>
+      </div>
+    </section>
+  </ng-template>
 
   <ng-container *ngIf="bookmarkedStates$ | async as bookmarkedStates">
     <section class="section bookmarks">
@@ -17,11 +33,17 @@
     </section>
   </ng-container>
 
-  <ng-container *ngIf="indiaStates$ | async as indiaStates">
+  <ng-container *ngIf="indiaStates$ | async as indiaStates; else statesLoading">
     <section class="section state-stats">
       <app-state-stats [data]="indiaStates" (bookmarkChanged)="bookmarkChanged($event)"></app-state-stats>
     </section>
   </ng-container>
+
+  <ng-template #statesLoading>
+    <section class="section state-stats">
+      <app-table [loading]="true"></app-table>
+    </section>
+  </ng-template>
   <ng-container>
     <section class="section trends">
       <app-trends></app-trends>

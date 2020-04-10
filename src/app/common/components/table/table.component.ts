@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 9:17:52 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 8:15:58 pm
+ * Last Modified: Friday, 10th April 2020 7:07:32 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -19,6 +19,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TableComponent implements OnInit {
   @Input() dataSource: any[];
   @Output() bookMarked = new EventEmitter<string>();
+
+  @Input() loading = false;
   constructor() {}
 
   ngOnInit(): void {}
