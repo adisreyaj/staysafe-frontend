@@ -4,13 +4,13 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 6:48:03 pm
+ * Last Modified: Friday, 10th April 2020 7:47:46 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Observer } from 'rxjs';
 import { map, mergeMapTo } from 'rxjs/operators';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 
@@ -20,6 +20,7 @@ import { StateData } from '@staysafe/interfaces/india.interface';
 import { StorageService } from '@staysafe/services/storage.service';
 import { NewsArticle } from '@staysafe/interfaces/news.interface';
 import { HeadingData } from '@staysafe/components/heading/heading.component';
+import { CommunicationService } from '@staysafe/services/communication.service';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,8 @@ import { HeadingData } from '@staysafe/components/heading/heading.component';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  isNotificationBannerVisible = true;
+
   quickStats$: Observable<QuickStatsData[]>;
   topNews$: Observable<NewsArticle[]>;
 
@@ -47,6 +50,7 @@ export class HomeComponent implements OnInit {
     private dataService: DataService,
     private storageService: StorageService,
     private afMessaging: AngularFireMessaging,
+    private comunicationService: CommunicationService,
   ) {}
 
   ngOnInit(): void {
@@ -58,14 +62,9 @@ export class HomeComponent implements OnInit {
 
   enableNotification() {
     console.log('🔔 Enabling Noitifations');
-    this.afMessaging.requestPermission.pipe(mergeMapTo(this.afMessaging.tokenChanges)).subscribe(
-      (token) => {
-        console.log('Permission granted! Save to the server!', token);
-      },
-      (error) => {
-        console.error(error);
-      },
-    );
+    this.afMessaging.requestPermission
+      .pipe(mergeMapTo(this.afMessaging.tokenChanges))
+      .subscribe(this.notificationObserver);
   }
 
   bookmarkChanged(stateCode: string) {
@@ -159,5 +158,24 @@ export class HomeComponent implements OnInit {
       });
       return state;
     });
+  }
+
+  notificationObserver: Observer<string> = {
+    next: (token) => this.saveNotificationKey(token),
+    error: (err) => this.handleNotificationSaveError(err),
+    complete: () => {},
+  };
+
+  private saveNotificationKey(token) {
+    this.comunicationService.savePushToken(token).subscribe(
+      () => {
+        this.isNotificationBannerVisible = false;
+      },
+      () => {},
+    );
+  }
+
+  private handleNotificationSaveError(err: any) {
+    this.isNotificationBannerVisible = false;
   }
 }

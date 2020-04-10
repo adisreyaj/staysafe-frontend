@@ -1,7 +1,10 @@
 <main class="inner-container" fxLayout="column">
   <ng-container>
     <section class="section notification-banner">
-      <app-notification-banner (enableClicked)="enableNotification()"></app-notification-banner>
+      <app-notification-banner
+        (enableClicked)="enableNotification()"
+        [visible]="isNotificationBannerVisible"
+      ></app-notification-banner>
     </section>
   </ng-container>
 
