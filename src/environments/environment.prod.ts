@@ -4,7 +4,7 @@
  * File Created: Sunday, 5th April 2020 1:46:10 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 4:36:54 pm
+ * Last Modified: Saturday, 11th April 2020 12:10:30 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -13,13 +13,12 @@ export const environment = {
   production: true,
   backend: 'https://staysafeappbackend.herokuapp.com',
   firebase: {
-    apiKey: 'AIzaSyAF0DfPP7tojRw0h0twPdPfN3aCsuoA3-4',
-    authDomain: 'staysafe-app.firebaseapp.com',
-    databaseURL: 'https://staysafe-app.firebaseio.com',
-    projectId: 'staysafe-app',
-    storageBucket: 'staysafe-app.appspot.com',
-    messagingSenderId: '21639293017',
-    appId: '1:21639293017:web:5c27bc266a904d71db6948',
-    measurementId: 'G-XN8133W761',
+    apiKey: 'AIzaSyDsGUsquOzxRVGQLqlxMXJL57BCuNCN6HE',
+    authDomain: 'staysafe-backend.firebaseapp.com',
+    databaseURL: 'https://staysafe-backend.firebaseio.com',
+    projectId: 'staysafe-backend',
+    storageBucket: 'staysafe-backend.appspot.com',
+    messagingSenderId: '25377549210',
+    appId: '1:25377549210:web:69316fa29c1933e228e823',
   },
 };
