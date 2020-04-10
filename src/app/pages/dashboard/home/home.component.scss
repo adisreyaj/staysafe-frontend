@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 1:11:33 am
+ * Last Modified: Friday, 10th April 2020 12:50:00 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,7 +12,12 @@
 .section {
   width: 100%;
   margin: 20px 0;
-  &:nth-child(1) {
+  &:nth-child(2) {
     margin-top: 0 !important;
+  }
+
+  &.notification-banner {
+    margin-top: 40px;
+    margin-bottom: 0;
   }
 }
