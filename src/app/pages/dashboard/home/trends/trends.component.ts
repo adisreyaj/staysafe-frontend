@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 2:21:31 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 10:58:29 pm
+ * Last Modified: Saturday, 11th April 2020 11:13:07 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -66,7 +66,6 @@ export class TrendsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log({ data: this.data });
     this.lineChartData = this.getLineChartData(this.data);
     this.lineChartLabels = this.data.labels.map((label) => label.slice(0, 6));
   }

@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 9:36:12 pm
+ * Last Modified: Saturday, 11th April 2020 11:13:07 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
       if (state.statecode === stateCode) state.bookmarked = !state.bookmarked;
       return state;
     });
-    console.log(this.statesList.find((item) => item.statecode === stateCode));
+
     this.indiaStatesSubject.next(this.statesList);
   }
 
@@ -147,9 +147,7 @@ export class HomeComponent implements OnInit {
 
   private listenNotifications() {
     this.afMessaging.messages.subscribe((messaging: any) => {
-      messaging._next = (payload: any) => {
-        console.log(payload);
-      };
+      messaging._next = (payload: any) => {};
     });
   }
 
