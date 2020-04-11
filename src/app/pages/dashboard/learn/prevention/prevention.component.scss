@@ -4,7 +4,7 @@
  * File Created: Saturday, 11th April 2020 7:46:21 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 8:11:44 pm
+ * Last Modified: Saturday, 11th April 2020 10:02:46 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -43,5 +43,23 @@
         color: $primary;
       }
     }
+  }
+}
+
+.video-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  &:after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+  }
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
