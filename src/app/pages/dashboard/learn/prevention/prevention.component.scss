@@ -1,0 +1,47 @@
+/*
+ * File: prevention.component.scss
+ * Project: staysafe-frontend
+ * File Created: Saturday, 11th April 2020 7:46:21 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Saturday, 11th April 2020 8:11:44 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+@import 'settings/colors';
+.prevention {
+  &__title {
+    margin-bottom: 16px;
+  }
+  &__description {
+    color: $text--light;
+  }
+  &__steps {
+    margin-top: 20px;
+  }
+  &__step {
+    margin-bottom: 40px;
+  }
+  .prevention-item {
+    &__title {
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+    &__description {
+      color: $text--light;
+    }
+    &__why {
+      font-weight: 500;
+      color: $text--dark;
+    }
+    &__learn-more {
+      margin-top: 14px;
+      padding: 20px;
+      border-radius: 35px;
+      border: solid 1px #dfe3e8;
+      span {
+        color: $primary;
+      }
+    }
+  }
+}

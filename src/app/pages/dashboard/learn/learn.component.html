@@ -1,1 +1,76 @@
-<p>learn works!</p>
+<main class="inner-container">
+  <div class="learn">
+    <section class="section learn__quick-stats">
+      <ng-container *ngIf="quickStats$ | async as quickStats; else quickStatsLoading">
+        <section>
+          <app-quick-stats [quickStats]="quickStats"></app-quick-stats>
+        </section>
+      </ng-container>
+      <ng-template #quickStatsLoading>
+        <section class="section quick-stats__loading" fxLayout="column wrap">
+          <app-heading [data]="quickStatsHeading"> </app-heading>
+          <div fxLayout="row wrap">
+            <article
+              fxFlex="50"
+              fxFlex.gt-xs="33.33"
+              fxFlex.gt-sm="20"
+              class="quick-stats__loading-item"
+              *ngFor="let item of [0, 0, 0, 0]"
+            >
+              <img src="../../../../assets/images/loading-stats.svg" alt="" />
+            </article>
+          </div>
+        </section>
+      </ng-template>
+    </section>
+    <section class="section learn__overview" fxLayout="column wrap" fxLayoutGap="16px">
+      <h2 class="main-heading">
+        Overview
+      </h2>
+      <p class="main-heading overview__title">What is Corona Virus?</p>
+      <p class="sub-heading overview__description">
+        Coronaviruses are a huge group of infections which may cause sickness in animals or people. In people, a few
+        coronaviruses are known to cause respiratory infections running from the common cold to increasingly serious
+        infections, for example, Middle East Respiratory Syndrome (MERS) and Severe Acute Respiratory Syndrome (SARS).
+        The most as of late found coronavirus causes coronavirus illness COVID-19.
+      </p>
+      <div class="learn__video" fxLayout="column wrap" fxLayoutGap="16px">
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/1APwq1df6Mw"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 class="main-heading">
+          What is COVID-19?
+        </h2>
+        <p class="sub-heading">
+          COVID-19 is the infectious disease brought about by the most as of late found coronavirus. This new infection
+          and ailment were unknown before the outbreak started in Wuhan, China, in December 2019.
+        </p>
+      </div>
+    </section>
+    <section class="section learn__symptoms">
+      <app-symptoms></app-symptoms>
+    </section>
+    <section class="section learn__prevention">
+      <app-prevention [data]="prevention"></app-prevention>
+    </section>
+    <section class="section learn__treatment" fxLayout="column wrap" fxLayoutGap="16px">
+      <p class="main-heading">Treatment</p>
+      <p class="sub-heading">
+        There is no particular medication to prevent or treat coronavirus disease (COVID-19). People may require medical
+        care to help them to overcome.
+      </p>
+    </section>
+    <section class="section learn__links" fxLayout="column wrap" fxLayoutGap="20px">
+      <h2 class="main-heading">
+        Other useful source links
+      </h2>
+      <app-links [data]="learnLinks"></app-links>
+    </section>
+    <section class="section learn__news-letter"></section>
+  </div>
+</main>

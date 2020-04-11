@@ -4,11 +4,10 @@
  * File Created: Sunday, 5th April 2020 1:46:10 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Tuesday, 7th April 2020 8:18:09 pm
+ * Last Modified: Saturday, 11th April 2020 8:34:39 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
-
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

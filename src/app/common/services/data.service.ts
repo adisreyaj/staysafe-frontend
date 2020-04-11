@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 1:55:07 am
+ * Last Modified: Saturday, 11th April 2020 9:33:42 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -18,6 +18,7 @@ import { environment } from '../../../environments/environment';
 import { StateData } from '../interfaces/india.interface';
 import { WorldStats } from '../interfaces/world.interface';
 import { News } from '../interfaces/news.interface';
+import { QuickInsightLabels } from '@staysafe/components/quick-stats/quick-stats.component';
 @Injectable({
   providedIn: 'root',
 })
@@ -25,8 +26,40 @@ export class DataService {
   baseUrl = `${environment.backend}/api/v1`;
   constructor(private http: HttpClient) {}
 
-  getWorldQuickStats(): Observable<WorldStats> {
-    return this.http.get<WorldStats>(`${this.baseUrl}/world/stats`);
+  getWorldQuickStats() {
+    return this.http.get<WorldStats>(`${this.baseUrl}/world/stats`).pipe(
+      map((data) => {
+        if (data) {
+          return [
+            {
+              label: QuickInsightLabels.total,
+              value: data.cases,
+              delta: `+${data.todayCases}`,
+            },
+            {
+              label: QuickInsightLabels.active,
+              value: data.active,
+              delta: '+0',
+            },
+            {
+              label: QuickInsightLabels.critical,
+              value: data.critical,
+              delta: '+0',
+            },
+            {
+              label: QuickInsightLabels.recovered,
+              value: data.recovered,
+              delta: '+0',
+            },
+            {
+              label: QuickInsightLabels.deceased,
+              value: data.deaths,
+              delta: `+${data.todayDeaths}`,
+            },
+          ];
+        }
+      }),
+    );
   }
 
   getIndiaStatesData() {

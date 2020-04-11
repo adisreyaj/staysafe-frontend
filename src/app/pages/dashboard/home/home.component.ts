@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 10:44:20 pm
+ * Last Modified: Saturday, 11th April 2020 9:36:12 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -14,7 +14,7 @@ import { Observable, Subject, Observer } from 'rxjs';
 import { map, mergeMapTo } from 'rxjs/operators';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 
-import { QuickStatsData, QuickInsightLabels } from '@staysafe/components/quick-stats/quick-stats.component';
+import { QuickStatsData } from '@staysafe/components/quick-stats/quick-stats.component';
 import { DataService } from 'src/app/common/services/data.service';
 import { StateData } from '@staysafe/interfaces/india.interface';
 import { StorageService } from '@staysafe/services/storage.service';
@@ -86,39 +86,7 @@ export class HomeComponent implements OnInit {
   }
 
   private getQuickStats() {
-    this.quickStats$ = this.dataService.getWorldQuickStats().pipe(
-      map((data) => {
-        if (data) {
-          return [
-            {
-              label: QuickInsightLabels.total,
-              value: data.cases,
-              delta: `+${data.todayCases}`,
-            },
-            {
-              label: QuickInsightLabels.active,
-              value: data.active,
-              delta: '+0',
-            },
-            {
-              label: QuickInsightLabels.critical,
-              value: data.critical,
-              delta: '+0',
-            },
-            {
-              label: QuickInsightLabels.recovered,
-              value: data.recovered,
-              delta: '+0',
-            },
-            {
-              label: QuickInsightLabels.deceased,
-              value: data.deaths,
-              delta: `+${data.todayDeaths}`,
-            },
-          ];
-        }
-      }),
-    );
+    this.quickStats$ = this.dataService.getWorldQuickStats();
   }
 
   private getBookmarkedStates() {

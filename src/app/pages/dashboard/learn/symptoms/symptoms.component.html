@@ -1,0 +1,25 @@
+<div class="symptoms" fxLayout="column wrap" fxLayoutGap="16px">
+  <h2 class="main-heading">
+    Symptoms
+  </h2>
+
+  <p class="sub-heading">
+    The most well-known side effects of COVID-19 are fever, tiredness, and dry cough. A few patients may have a
+    throbbing painfulness, nasal clog, runny nose, sore throat or diarrhea. These signs are normally gentle and start
+    gradually. A few people become infected however don't build up any sign and don't feel unwell. The vast majority
+    (about 80%) recover from the disease without requiring exceptional treatment. More established individuals, and
+    those with basic medical issues like high blood pressure, heart problems or diabetes, are more likely to develop
+    serious illness. People with fever, cough and difficulty breathing should seek medical attention.
+  </p>
+
+  <div class="symptoms__images" fxLayout="row wrap" fxLayoutAlign="start center">
+    <div class="symptoms-image_item" *ngFor="let item of symptoms" fxFlex="50" fxFlex.gt-xs="33.33" fxFlex.gt-sm="20">
+      <article fxLayout="column wrap" fxLayoutGap="12px" fxLayoutAlign="start center">
+        <img [src]="item?.image" alt="{{ item?.title }}" />
+        <p>{{ item?.title }}</p>
+      </article>
+    </div>
+  </div>
+
+  <p class="credits">Icon made by Flat Icons from www.flaticon.com</p>
+</div>
