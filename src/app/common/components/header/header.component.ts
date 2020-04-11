@@ -4,11 +4,10 @@
  * File Created: Tuesday, 7th April 2020 8:15:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 1:31:05 am
+ * Last Modified: Saturday, 11th April 2020 10:46:41 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
-
 
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
@@ -19,7 +18,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
+  isMobileMenuVisible = false;
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleMobileMenu() {
+    this.isMobileMenuVisible = !this.isMobileMenuVisible;
+  }
 }
