@@ -15,13 +15,14 @@
             [routerLink]="['/']"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMenu()"
           >
             <p>Overview</p>
           </li>
-          <li class="nav-item" [routerLink]="['/news']" routerLinkActive="active">
+          <li class="nav-item" [routerLink]="['/news']" routerLinkActive="active" (click)="closeMenu()">
             <p>Latest News</p>
           </li>
-          <li class="nav-item" [routerLink]="['/learn']" routerLinkActive="active">
+          <li class="nav-item" [routerLink]="['/learn']" routerLinkActive="active" (click)="closeMenu()">
             <p>Learn</p>
           </li>
         </ul>

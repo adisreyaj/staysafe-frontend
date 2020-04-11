@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:15:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 10:46:41 pm
+ * Last Modified: Saturday, 11th April 2020 10:52:17 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -25,5 +25,9 @@ export class HeaderComponent implements OnInit {
 
   toggleMobileMenu() {
     this.isMobileMenuVisible = !this.isMobileMenuVisible;
+  }
+
+  closeMenu() {
+    this.isMobileMenuVisible = false;
   }
 }
