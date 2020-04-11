@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 11:13:07 pm
+ * Last Modified: Sunday, 12th April 2020 2:18:29 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -62,13 +62,21 @@ export class HomeComponent implements OnInit {
     this.listenNotifications();
     this.getLatestNews();
     this.getDataForTrendsChart();
+    this.checkIfNotificationTokenPresent();
+  }
+
+  checkIfNotificationTokenPresent() {
+    this.afMessaging.getToken.subscribe((token) => {
+      console.log({ token });
+      this.isNotificationBannerVisible = false;
+    });
   }
 
   enableNotification() {
     console.log('🔔 Enabling Noitifations');
     this.afMessaging.requestPermission
       .pipe(mergeMapTo(this.afMessaging.tokenChanges))
-      .subscribe(this.notificationObserver);
+      .subscribe(this.notificationTokenObserver);
   }
 
   bookmarkChanged(stateCode: string) {
@@ -146,17 +154,20 @@ export class HomeComponent implements OnInit {
   }
 
   private listenNotifications() {
-    this.afMessaging.messages.subscribe((messaging: any) => {
-      messaging._next = (payload: any) => {};
-    });
+    this.afMessaging.onMessage(this.notificationMessageObserver);
   }
 
   private handleNotificationSaveError(err: any) {
     this.isNotificationBannerVisible = false;
   }
 
-  private notificationObserver: Observer<string> = {
+  private notificationTokenObserver: Observer<string> = {
     next: (token) => this.saveNotificationKey(token),
+    error: (err) => this.handleNotificationSaveError(err),
+    complete: () => {},
+  };
+  private notificationMessageObserver: Observer<string> = {
+    next: (message) => console.log({ message }),
     error: (err) => this.handleNotificationSaveError(err),
     complete: () => {},
   };
