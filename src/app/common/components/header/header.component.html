@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container">
     <div class="header__left">
-      <div class="header__logo">
+      <div class="header__logo" [routerLink]="['/']">
         <img src="../../../../assets/images/logo.svg" alt="StaySafe" />
       </div>
       <nav class="header__nav-primary" [ngClass]="{ collapsed: !isMobileMenuVisible }">
