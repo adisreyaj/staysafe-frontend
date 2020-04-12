@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:15:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 11:50:47 pm
+ * Last Modified: Monday, 13th April 2020 12:32:25 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -21,7 +21,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   isMobileMenuVisible = false;
-
+  isMobileLocationSwitcherVisible = false;
   locationToggleButtons = [
     {
       label: 'india',
@@ -41,6 +41,9 @@ export class HeaderComponent implements OnInit {
   toggleMobileMenu() {
     this.isMobileMenuVisible = !this.isMobileMenuVisible;
   }
+  toggleLocationSwitcher() {
+    this.isMobileLocationSwitcherVisible = !this.isMobileLocationSwitcherVisible;
+  }
 
   locationSwitcher(type: string) {
     this.toggleService.toggleMainSelection(type);
@@ -50,6 +53,7 @@ export class HeaderComponent implements OnInit {
     });
     this.locationToggleButtons = activeStateChanged;
     this.locationToggleButtonsSubject.next(activeStateChanged);
+    this.isMobileLocationSwitcherVisible = false;
   }
 
   closeMenu() {

@@ -50,12 +50,18 @@
     <div class="header__right">
       <div class="header__location-switch">
         <app-button-group
+          class="location-switch__web"
           (buttonClicked)="locationSwitcher($event)"
           [buttons$]="locationToggleButtons$"
         ></app-button-group>
       </div>
       <div class="header__mobile-menu">
-        <img class="header__mobile-menu-icon" src="../../../../assets/images/icons/globe.svg" alt="" />
+        <img
+          class="header__mobile-menu-icon"
+          src="../../../../assets/images/icons/globe.svg"
+          alt="Location Switcher"
+          (click)="toggleLocationSwitcher()"
+        />
         <img
           class="header__mobile-menu-icon"
           src="../../../../assets/images/icons/menu.svg"
@@ -65,4 +71,26 @@
       </div>
     </div>
   </div>
+  <ng-container *ngIf="isMobileLocationSwitcherVisible">
+    <div class="location-switch__mobile" *ngIf="locationToggleButtons$ | async as locationToggleButtons">
+      <ul>
+        <li
+          *ngFor="let item of locationToggleButtons"
+          [ngClass]="{ active: item.active }"
+          fxLayoutAlign="start center"
+          fxLayoutGap="8px"
+          (click)="locationSwitcher(item.label)"
+        >
+          <img
+            src="../../../../assets/images/icons/check.svg"
+            alt="Selected"
+            [ngStyle]="{ visibility: item.active ? 'visible' : 'hidden' }"
+          />
+          <span>
+            {{ item?.label | titlecase }}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
 </header>
