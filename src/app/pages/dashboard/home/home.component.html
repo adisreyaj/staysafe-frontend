@@ -1,6 +1,6 @@
 <main class="inner-container" fxLayout="column">
   <ng-container>
-    <section class="section notification-banner">
+    <section class="notification-banner">
       <app-notification-banner
         (enableClicked)="enableNotification()"
         [visible]="isNotificationBannerVisible"
@@ -44,6 +44,7 @@
 
   <ng-template #statesLoading>
     <section class="section state-stats">
+      <app-heading [data]="statesTableHeading"> </app-heading>
       <app-table [loading]="true"></app-table>
     </section>
   </ng-template>

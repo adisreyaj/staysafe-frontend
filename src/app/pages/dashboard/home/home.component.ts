@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 2:18:29 am
+ * Last Modified: Sunday, 12th April 2020 12:35:56 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -47,6 +47,11 @@ export class HomeComponent implements OnInit {
   quickStatsHeading: HeadingData = {
     main: 'Quick Stats',
     sub: 'Last Update: 23mins ago',
+  };
+  statesTableHeading: HeadingData = {
+    main: 'COVID - 19 Statistics',
+    sub: `The coronavirus COVID-19 is affecting 209 countries and territories around the world and 2 international
+      conveyances. The day is reset after midnight IST +530.`,
   };
   constructor(
     private dataService: DataService,

@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 11:15:44 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 10:59:43 pm
+ * Last Modified: Sunday, 12th April 2020 12:28:41 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -17,7 +17,6 @@
 @import 'settings/breakpoint';
 
 .quick-stats {
-  margin-top: 20px;
   &__item {
     border: 1px solid lighten($text--light, 40);
     padding: 20px;
