@@ -23,7 +23,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets/fonts", "src/assets/images", "src/firebase-messaging-sw.js"],
+            "assets": [
+              "src/assets/fonts",
+              "src/assets/images",
+              "src/site.webmanifest",
+              "src/firebase-messaging-sw.js",
+              "src/manifest.json",
+              "src/_redirects"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/scss", "src/assets/scss/partials"]
             },
