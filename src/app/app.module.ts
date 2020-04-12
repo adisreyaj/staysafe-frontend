@@ -19,6 +19,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '@staysafe/env/environment';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { environment } from '@staysafe/env/environment';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireMessagingModule,
+    ScullyLibModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
