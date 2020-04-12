@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 2:21:31 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 11:13:07 pm
+ * Last Modified: Sunday, 12th April 2020 2:30:58 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -42,9 +42,37 @@ export class TrendsComponent implements OnInit {
   public lineChartLabels: Label[];
   public lineChartOptions: ChartOptions = {
     responsive: true,
+    tooltips: {
+      mode: 'index',
+      intersect: false,
+      position: 'nearest',
+      backgroundColor: '#212b36',
+      titleFontFamily: 'SFProText',
+      bodyFontFamily: 'SFProText',
+      cornerRadius: 3,
+      xPadding: 12,
+      multiKeyBackground: '#212b36',
+      yPadding: 8,
+      titleAlign: 'left',
+    },
+    legend: {
+      position: 'bottom',
+      align: 'center',
+      labels: {
+        boxWidth: 16,
+        fontColor: '#212b36',
+        fontFamily: 'SFProText',
+      },
+    },
     scales: {
       xAxes: [
         {
+          type: 'time',
+          time: {
+            displayFormats: { day: 'MM/YY' },
+            tooltipFormat: 'DD/MM/YY',
+            unit: 'month',
+          },
           gridLines: {
             display: false,
           },
@@ -52,8 +80,8 @@ export class TrendsComponent implements OnInit {
       ],
       yAxes: [
         {
-          ticks: {
-            beginAtZero: false,
+          gridLines: {
+            color: '#f4f6f8',
           },
         },
       ],

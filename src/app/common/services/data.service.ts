@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 9:33:42 pm
+ * Last Modified: Sunday, 12th April 2020 2:31:14 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -70,7 +70,9 @@ export class DataService {
     return this.http.get('https://api.covid19india.org/data.json').pipe(
       map((data: any) => data.cases_time_series),
       map((data) => {
-        const dates = data.map((item) => item.date);
+        const dates = data.map((item) => `${item.date}2020`);
+        console.log({ dates });
+
         return {
           labels: dates,
           cumulative: [

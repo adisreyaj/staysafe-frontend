@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:15:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 12:53:09 pm
+ * Last Modified: Sunday, 12th April 2020 2:40:49 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -35,7 +35,7 @@
 
   &__nav-primary {
     &.collapsed {
-      display: block !important;
+      display: none !important;
     }
     .mobile-menu__close {
       display: none;
@@ -65,6 +65,10 @@
         }
       }
     }
+
+    &.web {
+      display: block !important;
+    }
   }
 
   &__mobile-menu {
@@ -75,6 +79,9 @@
 @media screen and (max-width: $mobile) {
   .header {
     &__nav-primary {
+      &.web {
+        display: none !important;
+      }
       position: fixed;
       top: 0;
       bottom: 0;
@@ -112,7 +119,7 @@
         }
       }
       &.collapsed {
-        display: block !important;
+        // display: block !important;
       }
       .mobile-menu__close {
         display: block;
