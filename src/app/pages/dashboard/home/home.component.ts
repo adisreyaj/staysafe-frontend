@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 12:35:56 pm
+ * Last Modified: Sunday, 12th April 2020 11:20:24 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -22,6 +22,7 @@ import { NewsArticle } from '@staysafe/interfaces/news.interface';
 import { HeadingData } from '@staysafe/components/heading/heading.component';
 import { CommunicationService } from '@staysafe/services/communication.service';
 import { TrendsChart } from '@staysafe/interfaces/chart.interface';
+import { ToggleService } from '@staysafe/services/toggle.service';
 
 @Component({
   selector: 'app-home',
@@ -53,11 +54,14 @@ export class HomeComponent implements OnInit {
     sub: `The coronavirus COVID-19 is affecting 209 countries and territories around the world and 2 international
       conveyances. The day is reset after midnight IST +530.`,
   };
+
+  currentLocation = 'india';
   constructor(
     private dataService: DataService,
     private storageService: StorageService,
     private afMessaging: AngularFireMessaging,
     private comunicationService: CommunicationService,
+    private toggleService: ToggleService,
   ) {}
 
   ngOnInit(): void {
@@ -68,6 +72,13 @@ export class HomeComponent implements OnInit {
     this.getLatestNews();
     this.getDataForTrendsChart();
     this.checkIfNotificationTokenPresent();
+    this.listenToLocationSwitcher();
+  }
+
+  listenToLocationSwitcher() {
+    this.toggleService.mainSelection$.subscribe((data) => {
+      this.currentLocation = data;
+    });
   }
 
   checkIfNotificationTokenPresent() {

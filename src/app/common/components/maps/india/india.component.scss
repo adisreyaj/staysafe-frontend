@@ -1,0 +1,24 @@
+/*
+ * File: india.component.scss
+ * Project: staysafe-frontend
+ * File Created: Sunday, 12th April 2020 8:21:38 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Sunday, 12th April 2020 11:54:57 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+:host {
+  width: 100%;
+}
+@import 'settings/breakpoint';
+.map {
+  height: 500px;
+}
+
+@media screen and (max-width: $mobile) {
+  .map {
+    height: 300px;
+  }
+}

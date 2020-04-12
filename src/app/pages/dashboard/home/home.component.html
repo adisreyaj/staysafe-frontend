@@ -32,7 +32,8 @@
 
   <ng-container>
     <section class="section">
-      <app-world></app-world>
+      <app-india *ngIf="currentLocation === 'india'"></app-india>
+      <app-world *ngIf="currentLocation !== 'india'"></app-world>
     </section>
   </ng-container>
 

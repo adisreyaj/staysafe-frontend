@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 9:37:55 pm
+ * Last Modified: Sunday, 12th April 2020 8:27:51 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -24,6 +24,7 @@ import { TrendsComponent } from './trends/trends.component';
 import { TopNewsComponent } from './top-news/top-news.component';
 import { TopNewsCardComponent } from './top-news/top-news-card/top-news-card.component';
 import { TimeAgoModule } from '../../../common/pipes/time-ago/time-ago.module';
+import { IndiaModule } from '@staysafe/components/maps/india/india.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TimeAgoModule } from '../../../common/pipes/time-ago/time-ago.module';
     ReactiveFormsModule,
     TimeAgoModule,
     ChartsModule,
+    IndiaModule,
   ],
 })
 export class HomeModule {}

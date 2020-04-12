@@ -49,7 +49,10 @@
     </div>
     <div class="header__right">
       <div class="header__location-switch">
-        <app-button-group></app-button-group>
+        <app-button-group
+          (buttonClicked)="locationSwitcher($event)"
+          [buttons$]="locationToggleButtons$"
+        ></app-button-group>
       </div>
       <div class="header__mobile-menu">
         <img class="header__mobile-menu-icon" src="../../../../assets/images/icons/globe.svg" alt="" />
