@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 2:21:31 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 2:30:58 pm
+ * Last Modified: Sunday, 12th April 2020 2:48:11 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -69,9 +69,9 @@ export class TrendsComponent implements OnInit {
         {
           type: 'time',
           time: {
-            displayFormats: { day: 'MM/YY' },
+            displayFormats: { week: 'DD MMM' },
             tooltipFormat: 'DD/MM/YY',
-            unit: 'month',
+            unit: 'week',
           },
           gridLines: {
             display: false,
