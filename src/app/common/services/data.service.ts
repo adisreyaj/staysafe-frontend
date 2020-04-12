@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 2:46:31 pm
+ * Last Modified: Sunday, 12th April 2020 6:30:22 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -61,6 +61,9 @@ export class DataService {
       }),
     );
   }
+  getWorldCountryData() {
+    return this.http.get(`${this.baseUrl}/world`);
+  }
 
   getIndiaStatesData() {
     return this.http.get<StateData[]>(`${this.baseUrl}/india/states`);
@@ -79,12 +82,12 @@ export class DataService {
               data: data.map((item) => item.totalconfirmed),
             },
             {
-              title: 'Total Deaths',
-              data: data.map((item) => item.totaldeceased),
-            },
-            {
               title: 'Total Recovered',
               data: data.map((item) => item.totalrecovered),
+            },
+            {
+              title: 'Total Deceased',
+              data: data.map((item) => item.totaldeceased),
             },
           ],
           daily: [
@@ -93,12 +96,12 @@ export class DataService {
               data: data.map((item) => item.dailyconfirmed),
             },
             {
-              title: 'Daily Deaths',
-              data: data.map((item) => item.dailydeceased),
-            },
-            {
               title: 'Daily Recovered',
               data: data.map((item) => item.dailyrecovered),
+            },
+            {
+              title: 'Daily Deceased',
+              data: data.map((item) => item.dailydeceased),
             },
           ],
         };

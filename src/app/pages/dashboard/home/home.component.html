@@ -30,6 +30,12 @@
     </section>
   </ng-template>
 
+  <ng-container>
+    <section class="section">
+      <app-world></app-world>
+    </section>
+  </ng-container>
+
   <ng-container *ngIf="bookmarkedStates$ | async as bookmarkedStates">
     <section class="section bookmarks">
       <app-bookmarked [data]="bookmarkedStates" (bookmarkChanged)="bookmarkChanged($event)"></app-bookmarked>

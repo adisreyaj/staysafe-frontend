@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:16:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 7:18:17 pm
+ * Last Modified: Sunday, 12th April 2020 3:15:09 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -22,6 +22,7 @@ import { ButtonGroupComponent } from './button-group/button-group.component';
 import { TableComponent } from './table/table.component';
 import { HeadingComponent } from './heading/heading.component';
 import { NotificationBannerComponent } from './notification-banner/notification-banner.component';
+import { WorldComponent } from './maps/world/world.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NotificationBannerComponent } from './notification-banner/notification-
     TableComponent,
     HeadingComponent,
     NotificationBannerComponent,
+    WorldComponent,
   ],
   imports: [CommonModule, RouterModule, FlexLayoutModule],
   exports: [
@@ -44,6 +46,7 @@ import { NotificationBannerComponent } from './notification-banner/notification-
     TableComponent,
     HeadingComponent,
     NotificationBannerComponent,
+    WorldComponent,
   ],
 })
 export class ComponentModule {}

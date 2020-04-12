@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 2:21:31 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 2:48:11 pm
+ * Last Modified: Sunday, 12th April 2020 3:04:42 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -57,9 +57,9 @@ export class TrendsComponent implements OnInit {
     },
     legend: {
       position: 'bottom',
-      align: 'center',
+      align: 'end',
       labels: {
-        boxWidth: 16,
+        boxWidth: 12,
         fontColor: '#212b36',
         fontFamily: 'SFProText',
       },
@@ -70,7 +70,6 @@ export class TrendsComponent implements OnInit {
           type: 'time',
           time: {
             displayFormats: { week: 'DD MMM' },
-            tooltipFormat: 'DD/MM/YY',
             unit: 'week',
           },
           gridLines: {
