@@ -4,7 +4,7 @@
  * File Created: Sunday, 12th April 2020 8:21:38 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 11:57:45 pm
+ * Last Modified: Monday, 13th April 2020 1:35:40 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -48,7 +48,7 @@ export class IndiaComponent implements OnInit, AfterViewInit, OnDestroy {
         this.renderMap();
       });
   }
-  renderMap() {
+  private renderMap() {
     am4core.useTheme(am4themes_animated);
     this.zone.runOutsideAngular(() => {
       let map = am4core.create('india_map', am4maps.MapChart);
