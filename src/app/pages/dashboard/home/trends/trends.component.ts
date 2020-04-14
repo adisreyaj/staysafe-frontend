@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 2:21:31 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 3:04:42 pm
+ * Last Modified: Wednesday, 15th April 2020 1:22:50 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -14,6 +14,8 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { HeadingData } from 'src/app/common/components/heading/heading.component';
 import { Color, Label } from 'ng2-charts';
 import { TrendsChart } from '@staysafe/interfaces/chart.interface';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-trends',
@@ -26,7 +28,7 @@ export class TrendsComponent implements OnInit {
     sub: `The charts above are updated after the close of the day in IST +530. Latest data is provisional, pending delayed reporting and adjustments from China's NHC.`,
   };
 
-  buttonGroup = [
+  buttonGroup = of([
     {
       label: 'cumulative',
       active: true,
@@ -35,7 +37,7 @@ export class TrendsComponent implements OnInit {
       label: 'daily',
       active: false,
     },
-  ];
+  ]);
   @Input() data: TrendsChart;
 
   public lineChartData: ChartDataSets[];
@@ -99,10 +101,14 @@ export class TrendsComponent implements OnInit {
 
   buttonToggled(type: string) {
     this.lineChartData = this.getLineChartData(this.data, type);
-    this.buttonGroup = [...this.buttonGroup].map((item) => {
-      item.active = item.label === type ? true : false;
-      return item;
-    });
+    this.buttonGroup = this.buttonGroup.pipe(
+      map((items) => {
+        return items.map((item) => {
+          item.active = item.label === type ? true : false;
+          return item;
+        });
+      }),
+    );
   }
 
   private getLineChartData(data: TrendsChart, type = 'cumulative') {
