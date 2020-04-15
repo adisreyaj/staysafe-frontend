@@ -48,19 +48,33 @@
       </nav>
     </div>
     <div class="header__right">
-      <div class="header__location-switch">
+      <div class="header__location-switch" fxLayout="row" fxLayoutGap="16px">
         <app-button-group
           class="location-switch__web"
           (buttonClicked)="locationSwitcher($event)"
           [buttons$]="locationToggleButtons$"
         ></app-button-group>
+        <img
+          src="../../../../assets/images/icons/settings.svg"
+          alt="Preferences"
+          class="preferences_button"
+          fxHide.lt-sm="true"
+          (click)="openPreferenceModal()"
+        />
       </div>
-      <div class="header__mobile-menu">
+      <div class="header__mobile-menu" fxLayout.lt-sm="row" fxLayoutGap.lt-sm="16px">
         <img
           class="header__mobile-menu-icon"
           src="../../../../assets/images/icons/globe.svg"
           alt="Location Switcher"
           (click)="toggleLocationSwitcher()"
+        />
+        <img
+          src="../../../../assets/images/icons/settings.svg"
+          alt="Preferences"
+          class="preferences_button"
+          fxHide.gt-xs="true"
+          (click)="openPreferenceModal()"
         />
         <img
           class="header__mobile-menu-icon"

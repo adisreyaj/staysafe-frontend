@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:16:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 8:27:04 pm
+ * Last Modified: Wednesday, 15th April 2020 11:27:46 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -23,6 +23,9 @@ import { TableComponent } from './table/table.component';
 import { HeadingComponent } from './heading/heading.component';
 import { NotificationBannerComponent } from './notification-banner/notification-banner.component';
 import { WorldComponent } from './maps/world/world.component';
+import { ModalComponent } from './modal/modal.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { ModalService } from './modal/modal.service';
 
 @NgModule({
   declarations: [
@@ -35,8 +38,9 @@ import { WorldComponent } from './maps/world/world.component';
     HeadingComponent,
     NotificationBannerComponent,
     WorldComponent,
+    ModalComponent,
   ],
-  imports: [CommonModule, RouterModule, FlexLayoutModule],
+  imports: [CommonModule, RouterModule, FlexLayoutModule, OverlayModule],
   exports: [
     HeaderComponent,
     SubHeaderComponent,
@@ -48,5 +52,6 @@ import { WorldComponent } from './maps/world/world.component';
     NotificationBannerComponent,
     WorldComponent,
   ],
+  providers: [ModalService],
 })
 export class ComponentModule {}

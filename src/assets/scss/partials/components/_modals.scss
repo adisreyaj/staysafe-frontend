@@ -1,0 +1,31 @@
+/*
+ * File: _modals.scss
+ * Project: staysafe-frontend
+ * File Created: Thursday, 16th April 2020 12:10:31 am
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Thursday, 16th April 2020 12:23:52 am
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/colors';
+.preference-modal {
+  padding: 24px;
+  background-color: #fff;
+  header {
+    margin-bottom: 20px;
+  }
+
+  .item {
+    padding: 10px 0;
+    &__header {
+      margin-bottom: 16px;
+    }
+    &__body {
+      span {
+        color: $text--light;
+      }
+    }
+  }
+}

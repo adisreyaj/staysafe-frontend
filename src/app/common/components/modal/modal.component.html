@@ -1,0 +1,42 @@
+<div class="modal preferences-modal" role="dialog">
+  <header fxLayoutAlign="space-between center">
+    <h2 class="main-heading">Preferences</h2>
+    <img src="../../../../assets/images/icons/close_dark.svg" alt="Close" />
+  </header>
+
+  <div class="preferences-modal__body">
+    <div class="item">
+      <div class="item__header" fxLayoutAlign="space-between center">
+        <p class="sub-heading">Email Notifications</p>
+      </div>
+      <div class="item__body form-field" fxLayout="column wrap" fxLayoutGap="4px">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+        <span>We'll use this email address to send notification/news via email</span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item__header" fxLayoutAlign="space-between center">
+        <p class="sub-heading">SMS Notifications</p>
+      </div>
+      <div class="item__body form-field" fxLayout="column wrap" fxLayoutGap="4px">
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" id="phone" />
+        <span>We'll use this Phone Number to send notification/news via SMS</span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item__header" fxLayoutAlign="space-between center">
+        <p class="sub-heading">Push Notifications</p>
+      </div>
+      <div class="item__body" fxLayout="column wrap" fxLayoutGap="4px">
+        <span>We'll send latest news/changes push notifications via browser</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="preferences-modal__footer" fxLayout="row wrap" fxLayoutGap="24px" fxLayoutAlign="end center">
+    <button class="btn stroked-btn">Cancel</button>
+    <button class="btn accent-btn">Save</button>
+  </div>
+</div>

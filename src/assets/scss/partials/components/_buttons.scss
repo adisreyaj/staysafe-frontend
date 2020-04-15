@@ -4,7 +4,7 @@
  * File Created: Thursday, 9th April 2020 12:00:19 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 12:12:47 am
+ * Last Modified: Thursday, 16th April 2020 12:30:49 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -13,7 +13,7 @@
 @import 'settings/breakpoint';
 
 .btn {
-  padding: 0 20px;
+  width: 100px;
   height: 36px;
   border: none;
   background-color: #fff;
@@ -27,6 +27,11 @@
 .primary-btn {
   @extend .btn;
   background-color: $primary;
+  color: #fff;
+}
+.accent-btn {
+  @extend .btn;
+  background-color: $accent;
   color: #fff;
 }
 
