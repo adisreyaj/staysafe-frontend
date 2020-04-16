@@ -4,7 +4,7 @@
  * File Created: Sunday, 12th April 2020 8:21:38 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 13th April 2020 1:35:40 am
+ * Last Modified: Thursday, 16th April 2020 10:40:09 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -67,7 +67,7 @@ export class IndiaComponent implements OnInit, AfterViewInit, OnDestroy {
       polygonSeries.events.on('validated', function () {
         polygonSeries.invalidate();
       });
-      polygonTemplate.tooltipText = '{name}[bold]{value} cases[/]';
+      polygonTemplate.tooltipText = '{name}: [bold]{value} cases[/]';
       polygonSeries.heatRules.push({
         target: polygonSeries.mapPolygons.template,
         property: 'fill',

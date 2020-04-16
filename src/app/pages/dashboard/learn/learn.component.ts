@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 12:26:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 9:36:54 pm
+ * Last Modified: Thursday, 16th April 2020 10:42:11 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,6 +16,7 @@ import { QuickStatsData } from '@staysafe/components/quick-stats/quick-stats.com
 import { LearnLinks } from './learn.interface';
 import { DataService } from '@staysafe/services/data.service';
 import { HeadingData } from '@staysafe/components/heading/heading.component';
+import { ToggleService } from '@staysafe/services/toggle.service';
 
 @Component({
   selector: 'app-learn',
@@ -87,10 +88,23 @@ export class LearnComponent implements OnInit {
   };
 
   quickStats$: Observable<QuickStatsData[]>;
-  constructor(private dataService: DataService) {}
 
+  currentLocation = 'india';
+
+  constructor(private dataService: DataService, private toggleService: ToggleService) {}
   ngOnInit(): void {
     this.getQuickStats();
+    this.listenToLocationSwitcher();
+  }
+
+  listenToLocationSwitcher() {
+    this.toggleService.mainSelection$.subscribe((data) => {
+      this.currentLocation = data;
+      if (this.currentLocation !== data) {
+        if (data === 'india') this.quickStats$ = this.dataService.getIndiaQuickStats();
+        else this.quickStats$ = this.dataService.getWorldQuickStats();
+      }
+    });
   }
 
   private getQuickStats() {
