@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 10:02:40 pm
+ * Last Modified: Thursday, 16th April 2020 9:28:09 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
-import { StateData } from '../interfaces/india.interface';
+import { StateData, IndiaStats } from '../interfaces/india.interface';
 import { WorldStats } from '../interfaces/world.interface';
 import { News } from '../interfaces/news.interface';
 import { QuickInsightLabels } from '@staysafe/components/quick-stats/quick-stats.component';
@@ -42,11 +42,6 @@ export class DataService {
               delta: '+0',
             },
             {
-              label: QuickInsightLabels.critical,
-              value: data.critical,
-              delta: '+0',
-            },
-            {
               label: QuickInsightLabels.recovered,
               value: data.recovered,
               delta: '+0',
@@ -61,6 +56,38 @@ export class DataService {
       }),
     );
   }
+
+  getIndiaQuickStats() {
+    return this.http.get<IndiaStats>(`${this.baseUrl}/india/stats`).pipe(
+      map((data) => {
+        if (data) {
+          return [
+            {
+              label: QuickInsightLabels.total,
+              value: +data.active,
+              delta: `+${data.active}`,
+            },
+            {
+              label: QuickInsightLabels.active,
+              value: +data.confirmed,
+              delta: `+${data.deltaconfirmed}`,
+            },
+            {
+              label: QuickInsightLabels.recovered,
+              value: +data.recovered,
+              delta: `+${data.deltarecovered}`,
+            },
+            {
+              label: QuickInsightLabels.deceased,
+              value: +data.deaths,
+              delta: `+${data.deltadeaths}`,
+            },
+          ];
+        }
+      }),
+    );
+  }
+
   getWorldCountryData() {
     return this.http.get(`${this.baseUrl}/world`);
   }

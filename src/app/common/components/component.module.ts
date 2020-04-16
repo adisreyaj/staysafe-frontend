@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:16:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 15th April 2020 11:27:46 pm
+ * Last Modified: Thursday, 16th April 2020 1:19:39 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -51,6 +51,7 @@ import { ModalService } from './modal/modal.service';
     HeadingComponent,
     NotificationBannerComponent,
     WorldComponent,
+    ModalComponent,
   ],
   providers: [ModalService],
 })

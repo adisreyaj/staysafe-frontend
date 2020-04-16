@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 11:20:24 pm
+ * Last Modified: Thursday, 16th April 2020 9:28:27 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -78,6 +78,8 @@ export class HomeComponent implements OnInit {
   listenToLocationSwitcher() {
     this.toggleService.mainSelection$.subscribe((data) => {
       this.currentLocation = data;
+      if (data === 'india') this.quickStats$ = this.dataService.getIndiaQuickStats();
+      else this.quickStats$ = this.dataService.getWorldQuickStats();
     });
   }
 

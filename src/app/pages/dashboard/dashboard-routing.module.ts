@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:17:52 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 12:26:34 pm
+ * Last Modified: Thursday, 16th April 2020 1:21:07 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -22,6 +22,10 @@ const routes: Routes = [
       { path: '', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) },
       { path: 'news', loadChildren: () => import('./news/news.module').then((m) => m.NewsModule) },
       { path: 'learn', loadChildren: () => import('./learn/learn.module').then((m) => m.LearnModule) },
+      {
+        path: 'preferences',
+        loadChildren: () => import('./preferences/preferences.module').then((m) => m.PreferencesModule),
+      },
     ],
   },
 ];
