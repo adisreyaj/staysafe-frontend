@@ -4,11 +4,12 @@
  * File Created: Tuesday, 7th April 2020 8:59:48 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 8th April 2020 10:57:20 pm
+ * Last Modified: Friday, 17th April 2020 12:19:48 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
+@import 'settings/breakpoint';
 .container {
   display: flex;
   width: 100%;
@@ -23,4 +24,10 @@
 .inner-container {
   @extend .container;
   max-width: 920px !important;
+}
+
+@media screen and (max-width: $mobile) {
+  .container {
+    padding: 0 16px !important;
+  }
 }

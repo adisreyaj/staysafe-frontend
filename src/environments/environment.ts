@@ -4,14 +4,14 @@
  * File Created: Sunday, 5th April 2020 1:46:10 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 12:10:38 am
+ * Last Modified: Friday, 17th April 2020 12:23:43 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 export const environment = {
   production: false,
-  backend: 'http://localhost:3000',
+  backend: 'http://192.168.1.2:3000',
   firebase: {
     apiKey: 'AIzaSyDsGUsquOzxRVGQLqlxMXJL57BCuNCN6HE',
     authDomain: 'staysafe-backend.firebaseapp.com',

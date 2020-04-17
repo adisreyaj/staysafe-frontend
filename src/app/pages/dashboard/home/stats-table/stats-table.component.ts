@@ -4,7 +4,7 @@
  * File Created: Thursday, 9th April 2020 12:47:16 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 5:02:23 pm
+ * Last Modified: Saturday, 18th April 2020 1:17:11 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -14,14 +14,15 @@ import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
 import { HeadingData } from '@staysafe/components/heading/heading.component';
-import { StorageService } from '@staysafe/services/storage.service';
+import { StorageService, BookmarkType } from '@staysafe/services/storage.service';
+import { TableDataWithType } from '@staysafe/components/table/table.component';
 @Component({
-  selector: 'app-state-stats',
-  templateUrl: './state-stats.component.html',
-  styleUrls: ['./state-stats.component.scss'],
+  selector: 'app-stats-table',
+  templateUrl: './stats-table.component.html',
+  styleUrls: ['./stats-table.component.scss'],
 })
-export class StateStatsComponent implements OnInit {
-  @Input() data: any[];
+export class StatsTableComponent implements OnInit {
+  @Input() data: TableDataWithType;
   tableHeading: HeadingData = {
     main: 'COVID - 19 Statistics',
     sub: `The coronavirus COVID-19 is affecting 209 countries and territories around the world and 2 international
@@ -34,14 +35,14 @@ export class StateStatsComponent implements OnInit {
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
-    this.dataSource = [...this.data];
+    this.dataSource = [...this.data.data];
     this.searchTerm.valueChanges.pipe(debounceTime(500)).subscribe((data) => {
-      this.dataSource = [...this.data].filter((item) => item.state.toLowerCase().includes(data.toLowerCase()));
+      this.dataSource = [...this.data.data].filter((item) => item.name.toLowerCase().includes(data.toLowerCase()));
     });
   }
 
-  bookMarked(code: string) {
-    this.storageService.addBookmark(code);
-    this.bookmarkChanged.emit(code);
+  bookMarked(data: { code: string; type: BookmarkType }) {
+    this.storageService.addBookmark(data);
+    this.bookmarkChanged.emit(data);
   }
 }

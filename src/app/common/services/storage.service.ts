@@ -4,49 +4,73 @@
  * File Created: Thursday, 9th April 2020 8:27:38 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 9th April 2020 9:43:42 pm
+ * Last Modified: Saturday, 18th April 2020 12:48:06 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Injectable } from '@angular/core';
+
+export enum BookmarkType {
+  state = 'STATE',
+  country = 'COUNTRY',
+}
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
   constructor() {}
-  addBookmark(stateCode: string) {
+  addBookmark({ code, type }: { code: string; type: BookmarkType }) {
     let newArray;
-    const db = this.getBookmarkDB();
+    const db = this.getBookmarkDB(type);
     if (db) {
-      if (db.includes(stateCode)) newArray = db.filter((item) => item !== stateCode);
-      else newArray = [...db, stateCode];
+      if (db.includes(code)) newArray = db.filter((item) => item !== code);
+      else newArray = [...db, code];
     } else {
-      newArray = [stateCode];
+      newArray = [code];
     }
-    localStorage.setItem('bookmark', JSON.stringify(newArray));
+    const dataToSave = JSON.stringify(newArray);
+    this.saveToStorageBasedOnType(type, dataToSave);
   }
 
-  getBookmarkedIndianStatesData() {
-    return this.getBookmarkDB();
+  getBookmarkedData(type: BookmarkType) {
+    return this.getBookmarkDB(type);
   }
 
-  removeItemFromBookmark(stateCode: string) {
-    const db = this.getBookmarkDB();
+  removeItemFromBookmark(code: string, type: BookmarkType) {
+    const db = this.getBookmarkDB(type);
     if (db) {
       const bookmarked = JSON.parse(db);
-      if (bookmarked.length > 0)
-        localStorage.setItem('bookmark', JSON.stringify(bookmarked.filter((item) => item !== stateCode)));
+      if (bookmarked.length > 0) {
+        const dataToSave = JSON.stringify(bookmarked.filter((item) => item !== code));
+        this.saveToStorageBasedOnType(type, dataToSave);
+      }
     }
   }
 
-  getBookmarkDB() {
-    const existing = localStorage.getItem('bookmark');
+  getBookmarkDB(type: BookmarkType) {
+    const existing =
+      type === BookmarkType.country ? localStorage.getItem('bookmark_country') : localStorage.getItem('bookmark_state');
     return existing ? JSON.parse(existing) : undefined;
   }
 
-  checkIfBookmarked(stateCode: string) {
-    const db = this.getBookmarkDB();
-    return db ? db.includes(stateCode) : false;
+  checkIfBookmarked(code: string, type: BookmarkType) {
+    const db = this.getBookmarkDB(type);
+    return db ? db.includes(code) : false;
+  }
+
+  saveToStorageBasedOnType(type: BookmarkType, data: string) {
+    switch (type) {
+      case BookmarkType.country:
+        localStorage.setItem('bookmark_country', data);
+        break;
+
+      case BookmarkType.state:
+        localStorage.setItem('bookmark_state', data);
+        break;
+
+      default:
+        break;
+    }
   }
 }

@@ -4,14 +4,15 @@
  * File Created: Thursday, 9th April 2020 12:56:17 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 12:23:02 pm
+ * Last Modified: Saturday, 18th April 2020 1:14:46 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { HeadingData } from '@staysafe/components/heading/heading.component';
-import { StorageService } from '@staysafe/services/storage.service';
+import { StorageService, BookmarkType } from '@staysafe/services/storage.service';
+import { TableDataWithType } from '@staysafe/components/table/table.component';
 
 @Component({
   selector: 'app-bookmarked',
@@ -19,7 +20,7 @@ import { StorageService } from '@staysafe/services/storage.service';
   styleUrls: ['./bookmarked.component.scss'],
 })
 export class BookmarkedComponent implements OnInit {
-  @Input() data: any[];
+  @Input() data: TableDataWithType;
   @Output() bookmarkChanged = new EventEmitter();
 
   tableHeading: HeadingData = {
@@ -30,8 +31,8 @@ export class BookmarkedComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  bookMarked(code: string) {
-    this.storageService.addBookmark(code);
-    this.bookmarkChanged.emit(code);
+  bookMarked(data: { code: string; type: BookmarkType }) {
+    this.storageService.addBookmark(data);
+    this.bookmarkChanged.emit(data);
   }
 }

@@ -6,6 +6,7 @@
       "@staysafe/components/*": ["src/app/common/components/*"],
       "@staysafe/services/*": ["src/app/common/services/*"],
       "@staysafe/interfaces/*": ["src/app/common/interfaces/*"],
+      "@staysafe/pipes/*": ["src/app/common/pipes/*"],
       "@staysafe/env/*": ["src/environments/*"]
     },
     "outDir": "./dist/out-tsc",

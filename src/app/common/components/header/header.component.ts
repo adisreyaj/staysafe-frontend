@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:15:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 15th April 2020 11:28:47 pm
+ * Last Modified: Friday, 17th April 2020 10:01:18 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -26,11 +26,11 @@ export class HeaderComponent implements OnInit {
   locationToggleButtons = [
     {
       label: 'india',
-      active: true,
+      active: false,
     },
     {
       label: 'worldwide',
-      link: false,
+      active: true,
     },
   ];
   locationToggleButtonsSubject = new BehaviorSubject<any>(this.locationToggleButtons);
@@ -62,8 +62,6 @@ export class HeaderComponent implements OnInit {
   }
 
   openPreferenceModal() {
-    console.log('MODAL');
-
     this.modalService.openModal();
   }
 }

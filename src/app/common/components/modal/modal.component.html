@@ -1,7 +1,13 @@
 <div class="modal preferences-modal" role="dialog">
   <header fxLayoutAlign="space-between center">
     <h2 class="main-heading">Preferences</h2>
-    <img src="../../../../assets/images/icons/close_dark.svg" class="modal-close" alt="Close" (click)="closeModal()" />
+    <img
+      src="../../../../assets/images/icons/close_dark.svg"
+      class="modal-close"
+      alt="Close"
+      (click)="closeModal()"
+      fxHide.lt-sm="true"
+    />
   </header>
 
   <div class="preferences-modal__body">
@@ -36,7 +42,7 @@
   </div>
 
   <div class="preferences-modal__footer" fxLayout="row wrap" fxLayoutGap="24px" fxLayoutAlign="start center">
-    <button class="btn preferences-modal__button stroked-btn">Cancel</button>
+    <button class="btn preferences-modal__button stroked-btn" (click)="closeModal()">Cancel</button>
     <button class="btn preferences-modal__button accent-btn">Save</button>
   </div>
 </div>

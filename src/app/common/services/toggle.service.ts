@@ -4,7 +4,7 @@
  * File Created: Sunday, 12th April 2020 10:03:21 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 12th April 2020 10:46:41 pm
+ * Last Modified: Friday, 17th April 2020 11:43:53 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,7 +16,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ToggleService {
-  currentMainSelection = 'india';
+  currentMainSelection = 'worldwide';
 
   private mainSelectionSubject = new BehaviorSubject(this.currentMainSelection);
   mainSelection$ = this.mainSelectionSubject.asObservable();

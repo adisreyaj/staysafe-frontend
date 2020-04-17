@@ -33,19 +33,19 @@
   <ng-container>
     <section class="section">
       <app-india *ngIf="currentLocation === 'india'"></app-india>
-      <app-world *ngIf="currentLocation !== 'india'"></app-world>
+      <app-world *ngIf="currentLocation === 'worldwide'"></app-world>
     </section>
   </ng-container>
 
-  <ng-container *ngIf="bookmarkedStates$ | async as bookmarkedStates">
+  <ng-container *ngIf="bookmarkedData$ | async as bookmarkedData">
     <section class="section bookmarks">
-      <app-bookmarked [data]="bookmarkedStates" (bookmarkChanged)="bookmarkChanged($event)"></app-bookmarked>
+      <app-bookmarked [data]="bookmarkedData" (bookmarkChanged)="bookmarkChanged($event)"></app-bookmarked>
     </section>
   </ng-container>
 
-  <ng-container *ngIf="indiaStates$ | async as indiaStates; else statesLoading">
+  <ng-container *ngIf="tableData$ | async as tableData; else statesLoading">
     <section class="section state-stats">
-      <app-state-stats [data]="indiaStates" (bookmarkChanged)="bookmarkChanged($event)"></app-state-stats>
+      <app-stats-table [data]="tableData" (bookmarkChanged)="bookmarkChanged($event)"></app-stats-table>
     </section>
   </ng-container>
 

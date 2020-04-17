@@ -1,7 +1,18 @@
+<!--
+File: bookmarked.component.html
+Project: staysafe-frontend
+File Created: Thursday, 9th April 2020 12:56:17 am
+Author: Adithya Sreyaj
+-----
+Last Modified: Saturday, 18th April 2020 1:17:14 am
+Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+-----
+-->
+
 <div>
   <app-heading [data]="tableHeading"> </app-heading>
-  <ng-container *ngIf="data && data.length > 0; else noBookmarks">
-    <app-table [dataSource]="data" (bookMarked)="bookMarked($event)"></app-table>
+  <ng-container *ngIf="data && data.data.length > 0; else noBookmarks">
+    <app-table [data]="data" (bookMarked)="bookMarked($event)"></app-table>
   </ng-container>
   <ng-template #noBookmarks>
     <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="6px" class="no-bookmarks">

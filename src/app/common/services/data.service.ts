@@ -4,20 +4,23 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 16th April 2020 10:48:09 pm
+ * Last Modified: Friday, 17th April 2020 11:45:32 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
-import { environment } from '../../../environments/environment';
-import { StateData, IndiaStats } from '../interfaces/india.interface';
-import { WorldStats } from '../interfaces/world.interface';
-import { News } from '../interfaces/news.interface';
+import { environment } from '@staysafe/env/environment';
+import { StateData, IndiaStats } from '@staysafe/interfaces/india.interface';
+import { WorldStats } from '@staysafe/interfaces/world.interface';
+import { News } from '@staysafe/interfaces/news.interface';
 import { QuickInsightLabels } from '@staysafe/components/quick-stats/quick-stats.component';
+import { TableData } from '@staysafe/components/table/table.component';
+import { CountryData } from '@staysafe/interfaces/country.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -88,11 +91,52 @@ export class DataService {
   }
 
   getWorldCountryData() {
-    return this.http.get(`${this.baseUrl}/world`);
+    return this.http.get<CountryData[]>(`${this.baseUrl}/world`);
+  }
+
+  getCountryDataForTable(): Observable<TableData[]> {
+    return this.getWorldCountryData().pipe(
+      map((data: CountryData[]) => {
+        return data.map((country) => {
+          const { cases, deaths, country: name, countryCode: code } = country;
+          const tableData: TableData = {
+            active: cases.active,
+            code,
+            deceased: deaths.total,
+            name,
+            recovered: cases.recovered,
+            total: cases.total,
+            bookmarked: false,
+          };
+          return tableData;
+        });
+      }),
+    );
   }
 
   getIndiaStatesData() {
     return this.http.get<StateData[]>(`${this.baseUrl}/india/states`);
+  }
+
+  getIndiaStatesDataForTable(): Observable<TableData[]> {
+    return this.getIndiaStatesData().pipe(
+      map((data: StateData[]) => {
+        return data.map((state) => {
+          const { active, deaths: deceased, recovered, state: name, statecode: code, confirmed: total } = state;
+          const tableData: TableData = {
+            active: +active,
+            code,
+            deceased: +deceased,
+            name,
+            recovered: +recovered,
+            total: +total,
+            bookmarked: false,
+          };
+          return tableData;
+        });
+      }),
+      shareReplay(1),
+    );
   }
 
   getIndiaChartData() {

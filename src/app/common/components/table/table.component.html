@@ -1,53 +1,68 @@
 <div class="table" fxLayout="column">
   <header class="table__header" fxHide fxShow.gt-sm="true">
-    <div fxFlex="5"></div>
     <div class="table__header-item" fxFlex="40">
-      Country/State
+      <p>Country/State</p>
     </div>
-    <div class="table__header-item" fxFlex="15">Total Cases</div>
-    <div class="table__header-item" fxFlex="10">Active</div>
-    <div class="table__header-item" fxFlex="10">Recovered</div>
-    <div class="table__header-item" fxFlex="10">Deceased</div>
+    <div class="table__header-item" fxFlex="15"><p>Total</p></div>
+    <div class="table__header-item" fxFlex="15"><p>Active</p></div>
+    <div class="table__header-item" fxFlex="15"><p>Recovered</p></div>
+    <div class="table__header-item" fxFlex="15"><p>Deceased</p></div>
   </header>
   <header class="table__header" fxShow fxHide.gt-sm="true">
-    <div fxFlex="5"></div>
     <div class="table__header-item" fxFlex="40">
-      Country/State
+      <p>Country/State</p>
     </div>
-    <div class="table__header-item" fxFlex="15">Cases</div>
-    <div class="table__header-item" fxFlex="10">Actv</div>
-    <div class="table__header-item" fxFlex="10">Rcvd</div>
-    <div class="table__header-item" fxFlex="10">Dcsd</div>
+    <div class="table__header-item" fxFlex="15"><p>Cases</p></div>
+    <div class="table__header-item" fxFlex="15"><p>Actv</p></div>
+    <div class="table__header-item" fxFlex="15"><p>Rcvd</p></div>
+    <div class="table__header-item" fxFlex="15"><p>Dcsd</p></div>
   </header>
 
-  <div class="table__body">
-    <div class="table__item-row" *ngFor="let item of dataSource">
-      <article class="table__body-column table__action" fxFlex="5" (click)="toggleBookmark(item?.statecode)">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-          <path fill="none" d="M0 0h24v24H0z" />
-          <path
+  <div class="table__body" *ngIf="data && data.data">
+    <cdk-virtual-scroll-viewport
+      itemSize="data?.data?.length"
+      minBufferPx="40"
+      maxBufferPx="400"
+      [ngStyle]="{ height: data?.data?.length < 10 ? (data?.data?.length || 0) * 40 + 'px' : '400px' }"
+    >
+      <div class="table__item-row" *cdkVirtualFor="let item of data?.data; trackBy: trackBy">
+        <div fxFlex="3">
+          <svg
             class="bookmark-icon"
-            [ngClass]="{ bookmarked: item?.bookmarked }"
-            d="M4 2h16a1 1 0 0 1 1 1v19.276a.5.5 0 0 1-.704.457L12 19.03l-8.296 3.702A.5.5 0 0 1 3 22.276V3a1 1 0 0 1 1-1zm8 11.5l2.939 1.545-.561-3.272 2.377-2.318-3.286-.478L12 6l-1.47 2.977-3.285.478 2.377 2.318-.56 3.272L12 13.5z"
-          />
-        </svg>
-      </article>
-      <article class="table__body-column" fxFlex="40">
-        {{ item?.state }}
-      </article>
-      <article class="table__body-column" fxFlex="15">
-        {{ item?.confirmed }}
-      </article>
-      <article class="table__body-column" fxFlex="10">
-        {{ item?.active }}
-      </article>
-      <article class="table__body-column" fxFlex="10">
-        {{ item?.recovered }}
-      </article>
-      <article class="table__body-column" fxFlex="10">
-        {{ item?.deaths }}
-      </article>
-    </div>
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            (click)="toggleBookmark(item?.code)"
+          >
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+              class="bookmark-path"
+              [ngStyle]="{ fill: item?.bookmarked ? '#0071bc' : '#454f5b' }"
+              d="M4 2h16a1 1 0 0 1 1 1v19.276a.5.5 0 0 1-.704.457L12 19.03l-8.296 3.702A.5.5 0 0 1 3 22.276V3a1 1 0 0 1 1-1zm8 11.5l2.939 1.545-.561-3.272 2.377-2.318-3.286-.478L12 6l-1.47 2.977-3.285.478 2.377 2.318-.56 3.272L12 13.5z"
+            />
+          </svg>
+        </div>
+        <div fxFlex="2"></div>
+        <article class="table__body-column" fxFlex="35" fxLayoutAlign="start center">
+          <span>
+            {{ item?.name }}
+          </span>
+        </article>
+        <article class="table__body-column" fxFlex="15" fxFlex.lt-sm="15">
+          {{ item?.total }}
+        </article>
+        <article class="table__body-column" fxFlex="15" fxFlex.lt-sm="15">
+          {{ item?.active }}
+        </article>
+        <article class="table__body-column" fxFlex="15" fxFlex.lt-sm="15">
+          {{ item?.recovered }}
+        </article>
+        <article class="table__body-column" fxFlex="15" fxFlex.lt-sm="15">
+          {{ item?.deceased }}
+        </article>
+      </div>
+    </cdk-virtual-scroll-viewport>
   </div>
   <div class="table__body" *ngIf="loading">
     <img class="loading-img" src="../../../../assets/images/loading-table.svg" alt="" height="25px" />
