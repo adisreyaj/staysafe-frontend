@@ -4,7 +4,7 @@
  * File Created: Thursday, 9th April 2020 12:47:16 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 18th April 2020 1:17:11 am
+ * Last Modified: Sunday, 19th April 2020 1:09:08 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -15,29 +15,37 @@ import { debounceTime } from 'rxjs/operators';
 
 import { HeadingData } from '@staysafe/components/heading/heading.component';
 import { StorageService, BookmarkType } from '@staysafe/services/storage.service';
-import { TableDataWithType } from '@staysafe/components/table/table.component';
+import { TableDataWithType, TableData } from '@staysafe/components/table/table.component';
 @Component({
   selector: 'app-stats-table',
   templateUrl: './stats-table.component.html',
   styleUrls: ['./stats-table.component.scss'],
 })
 export class StatsTableComponent implements OnInit {
-  @Input() data: TableDataWithType;
+  @Input('data')
+  set allowDay(value: TableDataWithType) {
+    this.data = value;
+    this.dataSource = value;
+    this.allData = [...value.data];
+  }
   tableHeading: HeadingData = {
     main: 'COVID - 19 Statistics',
     sub: `The coronavirus COVID-19 is affecting 209 countries and territories around the world and 2 international
       conveyances. The day is reset after midnight IST +530.`,
   };
-  dataSource = [];
+  data: TableDataWithType;
+  allData: TableData[];
+  dataSource: TableDataWithType;
   searchTerm: FormControl = new FormControl('');
 
   @Output() bookmarkChanged = new EventEmitter();
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
-    this.dataSource = [...this.data.data];
     this.searchTerm.valueChanges.pipe(debounceTime(500)).subscribe((data) => {
-      this.dataSource = [...this.data.data].filter((item) => item.name.toLowerCase().includes(data.toLowerCase()));
+      const searchData = [...this.allData].filter((item) => item.name.toLowerCase().includes(data.toLowerCase()));
+      const newDataSoruce = Object.assign(this.dataSource, { data: searchData });
+      this.dataSource = newDataSoruce;
     });
   }
 

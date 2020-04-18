@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 9:17:52 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 18th April 2020 1:12:37 am
+ * Last Modified: Sunday, 19th April 2020 1:09:11 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -32,7 +32,6 @@ export interface TableDataWithType {
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent implements OnInit {
   @Input() data: TableDataWithType;
@@ -43,8 +42,8 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleBookmark(code: string) {
-    if (code) this.bookMarked.emit({ code, type: this.data.type });
+  toggleBookmark(code: string, type: BookmarkType) {
+    if (code) this.bookMarked.emit({ code, type });
   }
 
   trackBy(index): string {
