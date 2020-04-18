@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 18th April 2020 1:03:55 am
+ * Last Modified: Sunday, 19th April 2020 1:08:22 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -74,7 +74,6 @@ export class HomeComponent implements OnInit {
     this.getDataForTrendsChart();
     this.checkIfNotificationTokenPresent();
     this.listenToLocationSwitcher();
-    this.quickStats$ = this.dataService.getWorldQuickStats();
   }
 
   listenToLocationSwitcher() {
@@ -182,7 +181,7 @@ export class HomeComponent implements OnInit {
           return this.addBookmarkStatusToData(countries, BookmarkType.country);
         }),
       )
-      .subscribe((data) => this.bookmarkedDataSubject.next({ data, type: BookmarkType.state }));
+      .subscribe((data) => this.bookmarkedDataSubject.next({ data, type: BookmarkType.country }));
   }
 
   private getIndiaStates() {
