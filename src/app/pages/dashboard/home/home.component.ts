@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:18:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 19th April 2020 1:08:22 am
+ * Last Modified: Monday, 20th April 2020 11:25:34 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -30,7 +30,7 @@ import { TableData, TableDataWithType } from '@staysafe/components/table/table.c
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  isNotificationBannerVisible = true;
+  isNotificationBannerVisible = false;
 
   quickStats$: Observable<QuickStatsData[]>;
   topNews$: Observable<NewsArticle[]>;
@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit {
 
   checkIfNotificationTokenPresent() {
     this.afMessaging.getToken.subscribe((token) => {
-      this.isNotificationBannerVisible = false;
+      this.isNotificationBannerVisible = token ? false : true;
     });
   }
 

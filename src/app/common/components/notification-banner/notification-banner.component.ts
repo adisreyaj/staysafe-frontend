@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 12:31:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 11th April 2020 1:55:40 am
+ * Last Modified: Monday, 20th April 2020 11:24:30 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -18,7 +18,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class NotificationBannerComponent implements OnInit {
   @Output() enableClicked = new EventEmitter();
-  @Input() visible = true;
+  @Input() visible = false;
   constructor() {}
 
   ngOnInit(): void {}

@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:16:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 17th April 2020 11:00:12 pm
+ * Last Modified: Monday, 20th April 2020 11:13:14 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -27,6 +27,8 @@ import { WorldComponent } from './maps/world/world.component';
 import { ModalComponent } from './modal/modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ModalService } from './modal/modal.service';
+import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { ModalService } from './modal/modal.service';
     NotificationBannerComponent,
     WorldComponent,
     ModalComponent,
+    SlideToggleComponent,
   ],
   imports: [CommonModule, RouterModule, FlexLayoutModule, OverlayModule, ScrollingModule],
   exports: [
@@ -53,6 +56,7 @@ import { ModalService } from './modal/modal.service';
     NotificationBannerComponent,
     WorldComponent,
     ModalComponent,
+    SlideToggleComponent,
   ],
   providers: [ModalService],
 })
