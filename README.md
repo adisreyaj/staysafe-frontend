@@ -81,4 +81,4 @@ Please ⭐️ this repository if this project helped you!
 
 Copyright © 2020 [Adithya Sreyaj](https://github.com/adisreyaj).<br />
 
-This project is [Apache License 2.0](https://github.com/adisreyaj/staysafe-frontend/blob/LICENSE.md) licensed.
+This project is [Apache License 2.0](https://github.com/adisreyaj/staysafe-frontend/blob/master/LICENSE.md) licensed.
