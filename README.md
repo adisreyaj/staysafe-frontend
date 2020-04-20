@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Stay Safe 👋</h1>
 <p align="center">
   <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+    <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/license-Apache License 2.0-yellow.svg" target="_blank" />
   </a>
     <img src="https://img.shields.io/badge/Angular-v9.1.0-red" alt="angular">
   <a href="https://github.com/frinyvonnick/gitmoji-changelog">
@@ -40,7 +40,7 @@ npm run start
 
 Two things to be configured in the `environments.ts` file are the `backend` which points to the url where the [StaySafe Back-end](https://github.com/adisreyaj/staysafe-backend) is deployed.
 
-The other configuration is for Firebase for receiving push notifications. You can get started here [Fireabase Get Started](https://firebase.google.com/docs/cloud-messaging/js/client)
+The other configuration is for Firebase for receiving push notifications. You can get started here [Firebase Get Started](https://firebase.google.com/docs/cloud-messaging/js/client)
 
 ```json
 {
@@ -64,7 +64,7 @@ The other configuration is for Firebase for receiving push notifications. You ca
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome.<br />
-Feel free to check [issues page](https://github.com/adisreyaj/staysafe-backend/issues) if you want to contribute.
+Feel free to check [issues page](https://github.com/adisreyaj/staysafe-frontend/issues) if you want to contribute.
 
 ## Author
 
@@ -79,6 +79,6 @@ Please ⭐️ this repository if this project helped you!
 
 ## 📝 License
 
-Copyright © 2020 [Adithya Sreyah](https://github.com/adisreyaj).<br />
+Copyright © 2020 [Adithya Sreyaj](https://github.com/adisreyaj).<br />
 
-This project is [MIT](https://github.com/adisreyaj/staysafe-backend/blob/master/LICENSE.md) licensed.
+This project is [Apache License 2.0](https://github.com/adisreyaj/staysafe-frontend/blob/LICENSE.md) licensed.
