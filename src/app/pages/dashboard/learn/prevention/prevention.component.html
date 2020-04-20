@@ -1,0 +1,37 @@
+<div class="prevention">
+  <h2 class="main-heading prevention__title">{{ data?.title }}</h2>
+  <p class="sub-heading prevention__description">{{ data?.description }}</p>
+  <div class="prevention__steps">
+    <article
+      *ngFor="let item of data?.items"
+      class="prevention__step"
+      fxLayout="column wrap"
+      fxLayoutGap="16px"
+      fxLayoutAlign="start start"
+    >
+      <div>
+        <h3 class="main-heading prevention-item__title">{{ item?.title }}</h3>
+        <p class="sub-heading prevention-item__description">{{ item?.description }}</p>
+      </div>
+      <div>
+        <p class="sub-heading prevention-item__why">Why</p>
+        <p class="prevention-item__description">{{ item?.why }}</p>
+      </div>
+      <div class="prevention-item__learn-more" fxLayoutAlign="start center" fxLayoutGap="12px">
+        <img src="../../../../../assets/images/icons/question.svg" alt="question" />
+        <p>
+          Learn more about: <span>{{ item?.link?.name }}</span>
+        </p>
+      </div>
+    </article>
+  </div>
+
+  <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/1APwq1df6Mw"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>

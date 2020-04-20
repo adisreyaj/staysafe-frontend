@@ -1,0 +1,38 @@
+/*
+ * File: state-stats.component.scss
+ * Project: staysafe-frontend
+ * File Created: Thursday, 9th April 2020 12:47:16 am
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Friday, 10th April 2020 11:11:51 am
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/colors';
+@import 'settings/breakpoint';
+
+.header {
+  &__actions {
+    padding-top: 20px;
+  }
+}
+
+app-table {
+  overflow-y: auto;
+}
+@media screen and (max-width: $mobile) {
+  .header {
+    &__date-switcher {
+      order: 1;
+    }
+    &__search {
+      order: 3;
+      flex: 100%;
+      margin-top: 16px;
+    }
+    &__report {
+      order: 2;
+    }
+  }
+}

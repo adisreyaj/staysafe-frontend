@@ -1,0 +1,29 @@
+<div
+  class="notification"
+  fxLayoutAlign="start center"
+  fxLayoutGap="20px"
+  fxLayout="row wrap"
+  fxLayout.lt-sm="column"
+  fxLayoutAlign.lt-sm="start start"
+  *ngIf="visible"
+>
+  <img
+    src="../../../../assets/images/icons/close.svg"
+    alt="Close"
+    class="notification__close"
+    (click)="closeBanner()"
+  />
+  <div class="notification__content" fxLayout="column" fxFlex="70">
+    <div fxLayoutAlign="start center" fxLayoutGap="24px" fxLayout.lt-sm="column wrap" fxLayoutAlign.lt-sm="start start">
+      <img src="../../../../assets/images/icons/noitification.svg" alt="Notifications" class="notification__icon" />
+      <div fxLayout="column wrap" fxLayoutGap="12px">
+        <p class="notification__title">Enable Notifications</p>
+        <p>
+          Enable desktop notification to get awareness and to get latest updates about your bookmarked country/state.
+          You can disable anytime from browser settings.
+        </p>
+      </div>
+    </div>
+  </div>
+  <button class="notification__button" (click)="enableNotification()">Enable Notifications</button>
+</div>

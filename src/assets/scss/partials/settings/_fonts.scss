@@ -1,0 +1,49 @@
+/*
+ * File: _fonts.scss
+ * Project: staysafe-frontend
+ * File Created: Tuesday, 7th April 2020 7:50:30 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Monday, 13th April 2020 1:25:21 am
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-medium.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-medium.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-medium.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-medium.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-medium.svg#sf_pro_textmedium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-regular.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-regular.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-regular.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-regular.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-regular.svg#sf_pro_textregular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('./assets/fonts/SFPro/sf-pro-text-semibold.eot');
+  src: url('./assets/fonts/SFPro/sf-pro-text-semibold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFPro/sf-pro-text-semibold.woff') format('woff'),
+    url('./assets/fonts/SFPro/sf-pro-text-semibold.ttf') format('truetype'),
+    url('./assets/fonts/SFPro/sf-pro-text-semibold.svg#sf_pro_textsemibold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+$global-font: 'SFProText', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif !default;
+// $heading-font: 'SFProDisplay', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif !default;

@@ -1,27 +1,84 @@
-# StaysafeFrontend
+<h1 align="center">Welcome to Stay Safe 👋</h1>
+<p align="center">
+  <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
+    <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/license-Apache License 2.0-yellow.svg" target="_blank" />
+  </a>
+    <img src="https://img.shields.io/badge/Angular-v9.1.0-red" alt="angular">
+  <a href="https://github.com/frinyvonnick/gitmoji-changelog">
+    <img src="https://img.shields.io/badge/changelog-gitmoji-brightgreen.svg" alt="gitmoji-changelog">
+  </a>
+  <a href="https://twitter.com/AdiSreyaj">
+    <img alt="Twitter: Adithya Sreyaj" src="https://img.shields.io/twitter/follow/AdiSreyaj.svg?style=social" target="_blank" />
+  </a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+> Stay Safe is an application to track and learn about Pandemic disease and how to fight them.
 
-## Development server
+![StaySafe](./src/assets/images/stay-safe.png 'Stay Safe - Track, Learn and Care')
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 🚀 Usage
 
-## Code scaffolding
+Make sure you have the pre-requisites installed on your system. You can start by cloning/downloading the repo to your local system.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Install the dependencies of the applications
 
-## Build
+```
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+2. Configure the options in `environment.ts` file
 
-## Running unit tests
+3. Start the application using the command
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm run start
+```
 
-## Running end-to-end tests
+<br>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## 🛠 Environment Configuration
 
-## Further help
+Two things to be configured in the `environments.ts` file are the `backend` which points to the url where the [StaySafe Back-end](https://github.com/adisreyaj/staysafe-backend) is deployed.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The other configuration is for Firebase for receiving push notifications. You can get started here [Firebase Get Started](https://firebase.google.com/docs/cloud-messaging/js/client)
+
+```json
+{
+  "backend": "<staysafe_backend_url>",
+  "firebase": {
+    "apiKey": "<api_key>",
+    "authDomain": "<auth_domain>",
+    "databaseURL": "<firebase_db_url>",
+    "projectId": "<project_id>",
+    "storageBucket": "<storage_bucket>",
+    "messagingSenderId": "<message_sender>",
+    "appId": "<app_id>"
+  }
+}
+```
+
+<br>
+
+<hr>
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome.<br />
+Feel free to check [issues page](https://github.com/adisreyaj/staysafe-frontend/issues) if you want to contribute.
+
+## Author
+
+👤 **Adithya Sreyaj**
+
+- Twitter: [@AdiSreyaj](https://twitter.com/AdiSreyaj)
+- Github: [@adisreyaj](https://github.com/adisreyaj)
+
+## 👍🏼 Show your support
+
+Please ⭐️ this repository if this project helped you!
+
+## 📝 License
+
+Copyright © 2020 [Adithya Sreyaj](https://github.com/adisreyaj).<br />
+
+This project is [Apache License 2.0](https://github.com/adisreyaj/staysafe-frontend/blob/master/LICENSE.md) licensed.

@@ -1,0 +1,33 @@
+/*
+ * File: symptoms.component.scss
+ * Project: staysafe-frontend
+ * File Created: Saturday, 11th April 2020 8:22:44 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Saturday, 11th April 2020 8:44:53 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/breakpoint';
+@import 'settings/colors';
+.symptoms {
+  &__images {
+    .symptoms-image_item {
+      padding: 8px;
+      img {
+        width: 100%;
+        border-radius: 3px;
+        max-width: 160px;
+      }
+      p {
+        color: $text--light;
+      }
+    }
+  }
+  .credits {
+    color: $text--light;
+    font-size: 12px;
+    text-align: center;
+  }
+}

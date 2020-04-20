@@ -1,0 +1,64 @@
+/*
+ * File: button-group.component.scss
+ * Project: staysafe-frontend
+ * File Created: Wednesday, 8th April 2020 12:26:36 am
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Friday, 10th April 2020 10:58:54 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/colors';
+.button-group {
+  height: 36px;
+  &__item {
+    padding: 6px 20px;
+    border: solid 1px $primary;
+    color: $primary;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #fff;
+    &:nth-of-type(1) {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+    &:nth-child(odd) {
+      border-right: none;
+    }
+    &:nth-last-of-type(1) {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &.active {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+}
+.button-group.secondary {
+  .button-group__item {
+    padding: 6px 20px;
+    border: solid 1px #dfe3e8;
+    color: $text--dark;
+    font-weight: 600;
+    background-color: #fff;
+    &:nth-of-type(1) {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+    &:nth-child(odd) {
+      border-right: none;
+    }
+    &:nth-last-of-type(1) {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &.active {
+      background-color: #f4f6f8;
+      color: $text--dark;
+    }
+  }
+}

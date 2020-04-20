@@ -1,0 +1,55 @@
+/*
+ * File: footer.component.scss
+ * Project: staysafe-frontend
+ * File Created: Tuesday, 7th April 2020 8:15:53 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Tuesday, 7th April 2020 11:35:00 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/breakpoint';
+@import 'settings/colors';
+.footer {
+  width: 100%;
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  flex-flow: column wrap;
+  align-items: center;
+  &__logo {
+    height: 65px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    ul {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      padding-top: 16px;
+      li {
+        cursor: pointer;
+        font-weight: 600;
+        color: $primary;
+        &:nth-child(odd) {
+          margin-right: 12px;
+        }
+      }
+      span {
+        background-color: $text--dark;
+        border-radius: 50%;
+        width: 6px;
+        height: 6px;
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .footer {
+  }
+}

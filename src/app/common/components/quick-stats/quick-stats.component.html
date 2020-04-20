@@ -1,0 +1,18 @@
+<div class="quick-stats" fxLayout="column wrap">
+  <app-heading [data]="quickStatsHeading"></app-heading>
+  <section class="quick-stats__content" fxLayout="row wrap">
+    <article
+      class="quick-stats__item"
+      *ngFor="let stats of quickStats"
+      fxFlex="50"
+      fxFlex.gt-xs="33.33"
+      fxFlex.gt-sm="25"
+    >
+      <p class="quick-stats__item-label">{{ stats?.label }}</p>
+      <p class="quick-stats__item-delta" *ngIf="stats?.delta">[{{ stats?.delta }}]</p>
+      <p class="quick-stats__item-value">
+        {{ stats?.value | number }}
+      </p>
+    </article>
+  </section>
+</div>

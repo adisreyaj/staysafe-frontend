@@ -1,0 +1,68 @@
+<main class="inner-container" fxLayout="column">
+  <ng-container>
+    <section class="notification-banner">
+      <app-notification-banner
+        (enableClicked)="enableNotification()"
+        [visible]="isNotificationBannerVisible"
+      ></app-notification-banner>
+    </section>
+  </ng-container>
+
+  <ng-container *ngIf="quickStats$ | async as quickStats; else quickStatsLoading">
+    <section class="section quick-stats">
+      <app-quick-stats [quickStats]="quickStats"></app-quick-stats>
+    </section>
+  </ng-container>
+  <ng-template #quickStatsLoading>
+    <section class="section quick-stats__loading" fxLayout="column wrap">
+      <app-heading [data]="quickStatsHeading"> </app-heading>
+      <div fxLayout="row wrap">
+        <article
+          fxFlex="50"
+          fxFlex.gt-xs="33.33"
+          fxFlex.gt-sm="25"
+          class="quick-stats__loading-item"
+          *ngFor="let item of [0, 0, 0, 0]"
+        >
+          <img src="../../../../assets/images/loading-stats.svg" alt="" />
+        </article>
+      </div>
+    </section>
+  </ng-template>
+
+  <ng-container>
+    <section class="section">
+      <app-india *ngIf="currentLocation === 'india'"></app-india>
+      <app-world *ngIf="currentLocation === 'worldwide'"></app-world>
+    </section>
+  </ng-container>
+
+  <ng-container *ngIf="bookmarkedData$ | async as bookmarkedData">
+    <section class="section bookmarks">
+      <app-bookmarked [data]="bookmarkedData" (bookmarkChanged)="bookmarkChanged($event)"></app-bookmarked>
+    </section>
+  </ng-container>
+
+  <ng-container *ngIf="tableData$ | async as tableData; else statesLoading">
+    <section class="section state-stats">
+      <app-stats-table [data]="tableData" (bookmarkChanged)="bookmarkChanged($event)"></app-stats-table>
+    </section>
+  </ng-container>
+
+  <ng-template #statesLoading>
+    <section class="section state-stats">
+      <app-heading [data]="statesTableHeading"> </app-heading>
+      <app-table [loading]="true"></app-table>
+    </section>
+  </ng-template>
+  <ng-container *ngIf="chartData$ | async as chartData">
+    <section class="section trends">
+      <app-trends [data]="chartData"></app-trends>
+    </section>
+  </ng-container>
+  <ng-container>
+    <section class="section top-news" *ngIf="topNews$ | async as topNews">
+      <app-top-news [data]="topNews"></app-top-news>
+    </section>
+  </ng-container>
+</main>

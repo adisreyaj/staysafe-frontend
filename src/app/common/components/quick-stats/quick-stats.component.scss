@@ -1,0 +1,58 @@
+/*
+ * File: quick-stats.component.scss
+ * Project: staysafe-frontend
+ * File Created: Tuesday, 7th April 2020 11:15:44 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Thursday, 16th April 2020 10:39:03 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+:host {
+  width: 100%;
+}
+
+@import 'settings/colors';
+@import 'settings/breakpoint';
+
+.quick-stats {
+  &__item {
+    border: 1px solid lighten($text--light, 40);
+    padding: 20px;
+
+    &-label {
+      color: $text--light;
+      font-size: 12px;
+    }
+    &-value {
+      margin-top: 12px;
+      font-size: 26px;
+      color: $text--dark;
+      font-weight: 600;
+    }
+    &-delta {
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .quick-stats {
+    &__item {
+      &-value {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .quick-stats {
+    &__item {
+      border: 1px solid lighten($text--light, 40) !important;
+    }
+  }
+}

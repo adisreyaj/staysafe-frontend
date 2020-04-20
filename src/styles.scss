@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * File: styles.scss
+ * Project: staysafe-frontend
+ * File Created: Sunday, 5th April 2020 1:46:10 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Thursday, 16th April 2020 12:10:42 am
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import 'partials/settings/fonts';
+@import 'partials/global';
+@import 'partials/components/headings';
+@import 'partials/components/buttons';
+@import 'partials/components/form';
+@import 'partials/components/scrollbar';
+@import 'partials/components/modals';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $global-font;
+  font-size: 14px;
+}
+p {
+  font-size: 1rem;
+}

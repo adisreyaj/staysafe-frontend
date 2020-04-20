@@ -1,0 +1,8 @@
+<article class="learn-links" *ngFor="let item of data">
+  <h2 class="main-heading learn-links__title">
+    {{ item?.title }}
+  </h2>
+  <a class="sub-heading learn-links__link" [href]="item?.link" target="_blank" rel="noopener noreferrer">{{
+    item?.link
+  }}</a>
+</article>

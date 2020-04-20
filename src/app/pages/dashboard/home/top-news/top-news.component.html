@@ -1,0 +1,8 @@
+<div>
+  <app-heading [data]="tableHeading"> </app-heading>
+  <section class="top-news__section">
+    <article *ngFor="let item of data | slice: 0:5">
+      <app-top-news-card [news]="item"></app-top-news-card>
+    </article>
+  </section>
+</div>

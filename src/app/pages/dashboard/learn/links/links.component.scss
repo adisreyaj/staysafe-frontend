@@ -1,0 +1,23 @@
+/*
+ * File: links.component.scss
+ * Project: staysafe-frontend
+ * File Created: Saturday, 11th April 2020 8:13:15 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Saturday, 11th April 2020 8:19:28 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+@import 'settings/colors';
+
+.learn-links {
+  margin-bottom: 20px;
+  &__title {
+    font-size: 16px !important;
+    margin-bottom: 16px;
+  }
+  &__link {
+    color: $primary;
+    text-decoration: none;
+  }
+}

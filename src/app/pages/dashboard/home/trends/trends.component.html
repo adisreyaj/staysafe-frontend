@@ -1,0 +1,23 @@
+<div>
+  <app-heading [data]="tableHeading"> </app-heading>
+  <section class="trends__button-toggle">
+    <app-button-group
+      [type]="'secondary'"
+      [buttons$]="buttonGroup"
+      (buttonClicked)="buttonToggled($event)"
+    ></app-button-group>
+  </section>
+  <section class="trends__chart">
+    <canvas
+      baseChart
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+      [plugins]="lineChartPlugins"
+    >
+    </canvas>
+  </section>
+</div>

@@ -1,0 +1,16 @@
+<div class="top-news-card">
+  <div class="top-news-card__title">
+    <a [href]="news?.url" target="_blank" rel="noopener noreferrer">
+      {{ news?.title }}
+    </a>
+  </div>
+  <div class="top-news-card__body">{{ news?.content | slice: 0:180 }}...</div>
+  <div class="top-news-card__footer" fxLayoutAlign="space-between center">
+    <div class="top-news-card__meta" fxLayout="row wrap" fxLayoutGap="6px" fxLayoutAlign="start center">
+      <p>{{ news?.publishedAt | timeAgo }}</p>
+      <span class="meta-separator"></span>
+      <p>{{ news?.source?.name }}</p>
+    </div>
+    <div class="top-news-card__share"></div>
+  </div>
+</div>

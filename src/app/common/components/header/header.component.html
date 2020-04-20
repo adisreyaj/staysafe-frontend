@@ -1,0 +1,110 @@
+<header class="header">
+  <div class="container">
+    <div class="header__left">
+      <div class="header__logo" [routerLink]="['/']">
+        <img src="../../../../assets/images/logo.svg" alt="StaySafe" />
+      </div>
+      <nav class="header__nav-primary" [ngClass]="{ collapsed: !isMobileMenuVisible }">
+        <div class="mobile-menu__close" (click)="toggleMobileMenu()">
+          <img src="../../../../assets/images/icons/close_dark.svg" alt="Close menu" />
+        </div>
+        <ul>
+          <li class="nav-item mobile-menu__text"><p>Menu</p></li>
+          <li
+            class="nav-item"
+            [routerLink]="['/']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMenu()"
+          >
+            <p>Overview</p>
+          </li>
+          <!-- <li class="nav-item" [routerLink]="['/news']" routerLinkActive="active" (click)="closeMenu()">
+            <p>Latest News</p>
+          </li> -->
+          <li class="nav-item" [routerLink]="['/learn']" routerLinkActive="active" (click)="closeMenu()">
+            <p>Learn</p>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header__nav-primary web" [ngClass]="{ collapsed: !isMobileMenuVisible }">
+        <ul>
+          <li
+            class="nav-item"
+            [routerLink]="['/']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMenu()"
+          >
+            <p>Overview</p>
+          </li>
+          <!-- <li class="nav-item" [routerLink]="['/news']" routerLinkActive="active" (click)="closeMenu()">
+            <p>Latest News</p>
+          </li> -->
+          <li class="nav-item" [routerLink]="['/learn']" routerLinkActive="active" (click)="closeMenu()">
+            <p>Learn</p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header__right">
+      <div class="header__location-switch" fxLayout="row" fxLayoutGap="16px">
+        <app-button-group
+          class="location-switch__web"
+          (buttonClicked)="locationSwitcher($event)"
+          [buttons$]="locationToggleButtons$"
+        ></app-button-group>
+        <img
+          src="../../../../assets/images/icons/settings.svg"
+          alt="Preferences"
+          class="preferences_button"
+          fxHide.lt-sm="true"
+          (click)="openPreferenceModal()"
+        />
+      </div>
+      <div class="header__mobile-menu" fxLayout.lt-sm="row" fxLayoutGap.lt-sm="16px">
+        <img
+          class="header__mobile-menu-icon"
+          src="../../../../assets/images/icons/globe.svg"
+          alt="Location Switcher"
+          (click)="toggleLocationSwitcher()"
+        />
+        <img
+          src="../../../../assets/images/icons/settings.svg"
+          alt="Preferences"
+          class="preferences_button"
+          fxHide.gt-xs="true"
+          [routerLink]="['/preferences']"
+        />
+        <img
+          class="header__mobile-menu-icon"
+          src="../../../../assets/images/icons/menu.svg"
+          alt="Menu"
+          (click)="toggleMobileMenu()"
+        />
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="isMobileLocationSwitcherVisible">
+    <div class="location-switch__mobile" *ngIf="locationToggleButtons$ | async as locationToggleButtons">
+      <ul>
+        <li
+          *ngFor="let item of locationToggleButtons"
+          [ngClass]="{ active: item.active }"
+          fxLayoutAlign="start center"
+          fxLayoutGap="8px"
+          (click)="locationSwitcher(item.label)"
+        >
+          <img
+            src="../../../../assets/images/icons/check.svg"
+            alt="Selected"
+            [ngStyle]="{ visibility: item.active ? 'visible' : 'hidden' }"
+          />
+          <span>
+            {{ item?.label | titlecase }}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+</header>

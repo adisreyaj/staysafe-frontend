@@ -1,0 +1,12 @@
+<ng-container *ngIf="buttons$ | async as buttons">
+  <div class="button-group" fxLayout="row nowrap" [ngClass]="{ secondary: type === 'secondary' }">
+    <button
+      *ngFor="let button of buttons"
+      class="button-group__item"
+      [ngClass]="{ active: button?.active }"
+      (click)="buttonToggle(button?.label)"
+    >
+      {{ button?.label | titlecase }}
+    </button>
+  </div>
+</ng-container>

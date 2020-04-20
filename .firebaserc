@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "staysafe-app": {
+      "hosting": {
+        "staysafe-frontend": [
+          "staysafe-app"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+/*
+ * File: header.component.scss
+ * Project: staysafe-frontend
+ * File Created: Tuesday, 7th April 2020 8:15:47 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Wednesday, 15th April 2020 11:31:12 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+@import 'settings/breakpoint';
+@import 'settings/colors';
+
+.header {
+  height: 65px;
+  display: flex;
+
+  &__left {
+    flex: 80;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__right {
+    flex: 20;
+    display: flex;
+    justify-content: flex-end;
+    .location-switch {
+      &__mobile {
+        display: none;
+      }
+    }
+  }
+  &__logo {
+    height: 40px;
+    width: 40px;
+    margin-right: 55px;
+  }
+
+  &__nav-primary {
+    &.collapsed {
+      display: none !important;
+    }
+    .mobile-menu__close {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      li {
+        &.mobile-menu__text {
+          display: none;
+        }
+        color: $text--medium;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 0 16px;
+        &:nth-of-type(1) {
+          margin-left: 0;
+        }
+        &:nth-last-of-type(1) {
+          margin-right: 0;
+        }
+        &.active {
+          color: $text--dark;
+        }
+      }
+    }
+
+    &.web {
+      display: block !important;
+    }
+  }
+
+  &__mobile-menu {
+    display: none;
+  }
+
+  .preferences_button {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .header {
+    &__nav-primary {
+      &.web {
+        display: none !important;
+      }
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      left: 0;
+      z-index: 9999;
+      backdrop-filter: blur(30px);
+      background-color: rgba(255, 255, 255, 0.2);
+      right: 0;
+      width: 100vw;
+      ul {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        li {
+          margin-bottom: 20px;
+          &:nth-of-type(1) {
+            margin-left: 16px !important;
+          }
+          &:nth-last-of-type(1) {
+            margin-right: 16px !important;
+          }
+
+          &.mobile-menu__text {
+            display: block;
+            margin-bottom: 40px;
+            p {
+              font-size: 18px;
+              font-weight: 600;
+              color: $text--dark;
+            }
+          }
+        }
+      }
+      &.collapsed {
+        // display: block !important;
+      }
+      .mobile-menu__close {
+        display: block;
+      }
+    }
+    &__mobile-menu {
+      display: flex;
+      justify-content: flex-end;
+      &-icon {
+        cursor: pointer;
+      }
+    }
+    &__location-switch {
+      display: none;
+    }
+  }
+  .location-switch {
+    &__mobile {
+      position: absolute;
+      top: 62px;
+      width: 150px;
+      right: 97px;
+      z-index: 3;
+      border-radius: 3px;
+      box-shadow: 0 2px 16px 0 rgba(33, 43, 54, 0.08), 0 0 0 1px rgba(6, 44, 82, 0.1);
+      background-color: #ffffff;
+      ul {
+        list-style: none;
+        li {
+          padding: 12px 24px;
+          &.active {
+            background-color: $primary-bg--light;
+          }
+        }
+      }
+    }
+    &__web {
+      display: none;
+    }
+  }
+}
