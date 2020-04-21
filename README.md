@@ -73,6 +73,11 @@ Feel free to check [issues page](https://github.com/adisreyaj/staysafe-frontend/
 - Twitter: [@AdiSreyaj](https://twitter.com/AdiSreyaj)
 - Github: [@adisreyaj](https://github.com/adisreyaj)
 
+👤 **Chandan R Sindhe**
+
+- Linkedin: [Chandan Sindhe](https://www.linkedin.com/in/chandan-r-sindhe-48ba23104/)
+- Behance: [@chandanrsindhe](https://www.behance.net/chandanrsindhe)
+
 ## 👍🏼 Show your support
 
 Please ⭐️ this repository if this project helped you!
