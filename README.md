@@ -14,6 +14,8 @@
 
 > Stay Safe is an application to track and learn about Pandemic disease and how to fight them.
 
+StaySafe uses the power of Static Site Generation Powered by [Scully](https://github.com/scullyio/scully) to make it really fast.
+
 ![StaySafe](./src/assets/images/stay-safe.png 'Stay Safe - Track, Learn and Care')
 
 ## 🚀 Usage
