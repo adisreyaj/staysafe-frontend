@@ -1,6 +1,6 @@
 <div class="modal preferences-modal" role="dialog">
   <header fxLayoutAlign="space-between center">
-    <h2 class="main-heading">Preferences</h2>
+    <h2 class="main-heading">Subscribe to Notifications</h2>
     <img
       src="../../../../assets/images/icons/close_dark.svg"
       class="modal-close"
@@ -11,7 +11,7 @@
   </header>
 
   <div class="preferences-modal__body">
-    <div class="item">
+    <!-- <div class="item">
       <div class="item__header" fxLayoutAlign="space-between center">
         <p class="sub-heading">Email Notifications</p>
         <app-slide-toggle></app-slide-toggle>
@@ -21,22 +21,29 @@
         <input type="email" name="email" id="email" />
         <span>We'll use this email address to send notification/news via email</span>
       </div>
-    </div>
+    </div> -->
     <div class="item">
       <div class="item__header" fxLayoutAlign="space-between center">
         <p class="sub-heading">SMS Notifications</p>
-        <app-slide-toggle></app-slide-toggle>
+        <!-- <app-slide-toggle></app-slide-toggle> -->
       </div>
       <div class="item__body form-field" fxLayout="column wrap" fxLayoutGap="4px">
         <label for="phone">Phone Number</label>
-        <input type="tel" name="phone" id="phone" />
+        <div fxLayoutAlign="start center">
+          <input type="text" [formControl]="preferenceForm.countryCode" fxFlex="20" />
+          <input type="tel" name="phone" id="phone" [formControl]="preferenceForm.phone" fxFlex="80" />
+        </div>
         <span>We'll use this Phone Number to send notification/news via SMS</span>
       </div>
     </div>
     <div class="item">
       <div class="item__header" fxLayoutAlign="space-between center">
         <p class="sub-heading">Push Notifications</p>
-        <app-slide-toggle></app-slide-toggle>
+        <app-slide-toggle
+          [isChecked]="pushNotificationEnabled"
+          [type]="'push'"
+          (toggle)="listenToSlideToggle($event)"
+        ></app-slide-toggle>
       </div>
       <div class="item__body" fxLayout="column wrap" fxLayoutGap="4px">
         <span>We'll send latest news/changes push notifications via browser</span>
@@ -45,7 +52,10 @@
   </div>
 
   <div class="preferences-modal__footer" fxLayout="row wrap" fxLayoutGap="24px" fxLayoutAlign="start center">
-    <button class="btn preferences-modal__button stroked-btn" (click)="closeModal()">Cancel</button>
-    <button class="btn preferences-modal__button accent-btn">Save</button>
+    <button class="btn preferences-modal__button stroked-btn" fxHide.lt-sm="true" (click)="closeModal()">Cancel</button>
+    <button class="btn preferences-modal__button stroked-btn" fxHide.gt-xs="true" (click)="goBackHome()">
+      Go Back
+    </button>
+    <button class="btn preferences-modal__button accent-btn" (click)="saveSubscriptionDetails()">Save</button>
   </div>
 </div>

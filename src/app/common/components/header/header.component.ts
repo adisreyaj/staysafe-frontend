@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:15:47 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 17th April 2020 10:01:18 pm
+ * Last Modified: Thursday, 23rd April 2020 11:26:54 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,7 +12,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ToggleService } from '@staysafe/services/toggle.service';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { ModalService } from '../modal/modal.service';
+import { PreferenceModalService } from '../preference-modal/preference-modal.service';
 
 @Component({
   selector: 'app-header',
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
   ];
   locationToggleButtonsSubject = new BehaviorSubject<any>(this.locationToggleButtons);
   locationToggleButtons$ = this.locationToggleButtonsSubject.asObservable();
-  constructor(private toggleService: ToggleService, private modalService: ModalService) {}
+  constructor(private toggleService: ToggleService, private modalService: PreferenceModalService) {}
 
   ngOnInit(): void {}
 

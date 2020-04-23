@@ -4,7 +4,7 @@
  * File Created: Wednesday, 8th April 2020 8:41:11 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 17th April 2020 11:45:32 pm
+ * Last Modified: Tuesday, 21st April 2020 9:49:51 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -66,13 +66,13 @@ export class DataService {
           return [
             {
               label: QuickInsightLabels.total,
-              value: +data.active,
-              delta: `+${data.active}`,
+              value: +data.confirmed,
+              delta: `+${data.deltaconfirmed}`,
             },
             {
               label: QuickInsightLabels.active,
-              value: +data.confirmed,
-              delta: `+${data.deltaconfirmed}`,
+              value: +data.active,
+              delta: `+0`,
             },
             {
               label: QuickInsightLabels.recovered,

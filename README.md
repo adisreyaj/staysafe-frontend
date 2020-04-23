@@ -14,7 +14,23 @@
 
 > Stay Safe is an application to track and learn about Pandemic disease and how to fight them.
 
+StaySafe uses the power of Static Site Generation Powered by [Scully](https://github.com/scullyio/scully) to make it really fast.
+
 ![StaySafe](./src/assets/images/stay-safe.png 'Stay Safe - Track, Learn and Care')
+
+## 🔥 Features
+
+- Based on Angular v9
+- Static Site Generation Powered by [Scully](https://github.com/scullyio/scully)
+- Lazy Loaded Modules and Modular design
+- No external design library used (like Angular Material)
+- All Icons used are SVGs (No extra library used)
+- SCSS Based styles
+- Maps Powered by [AmCharts](https://github.com/amcharts/amcharts4)
+- Charts Powered by [Ng2 Charts](https://github.com/valor-software/ng2-charts/)
+- Push Notifications Powered by Firebase
+- PWA Support (coming soon)
+- Coming soon
 
 ## 🚀 Usage
 
@@ -72,6 +88,11 @@ Feel free to check [issues page](https://github.com/adisreyaj/staysafe-frontend/
 
 - Twitter: [@AdiSreyaj](https://twitter.com/AdiSreyaj)
 - Github: [@adisreyaj](https://github.com/adisreyaj)
+
+👤 **Chandan R Sindhe**
+
+- Linkedin: [Chandan Sindhe](https://www.linkedin.com/in/chandan-r-sindhe-48ba23104/)
+- Behance: [@chandanrsindhe](https://www.behance.net/chandanrsindhe)
 
 ## 👍🏼 Show your support
 

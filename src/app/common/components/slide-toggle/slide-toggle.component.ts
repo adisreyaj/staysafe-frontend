@@ -4,13 +4,17 @@
  * File Created: Monday, 20th April 2020 10:33:16 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 20th April 2020 11:11:40 pm
+ * Last Modified: Thursday, 23rd April 2020 11:19:19 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+
+export interface SlideToggle {
+  type: string;
+  status: boolean;
+}
 
 @Component({
   selector: 'app-slide-toggle',
@@ -18,14 +22,15 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./slide-toggle.component.scss'],
 })
 export class SlideToggleComponent implements OnInit {
-  @Output() private toggle = new EventEmitter();
+  @Input() isChecked = false;
+  @Input() type;
 
-  checked = false;
+  @Output() private toggle = new EventEmitter<SlideToggle>();
   constructor() {}
 
   ngOnInit(): void {}
   toggleButton() {
-    this.checked = !this.checked;
-    this.toggle.emit();
+    this.isChecked = !this.isChecked;
+    this.toggle.emit({ type: this.type, status: this.isChecked });
   }
 }
