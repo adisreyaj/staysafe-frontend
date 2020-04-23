@@ -4,7 +4,7 @@
  * File Created: Friday, 10th April 2020 7:45:39 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 7:46:48 pm
+ * Last Modified: Friday, 24th April 2020 12:00:21 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -22,5 +22,9 @@ export class CommunicationService {
 
   savePushToken(token: string) {
     return this.http.post(`${this.baseUrl}/com/push/token`, { token });
+  }
+
+  registerPhoneNumberForSMSNotifications(phone: string) {
+    return this.http.post(`${this.baseUrl}/sms/register`, { phone });
   }
 }

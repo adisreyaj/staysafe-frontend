@@ -4,7 +4,7 @@
  * File Created: Tuesday, 7th April 2020 8:16:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 20th April 2020 11:13:14 pm
+ * Last Modified: Thursday, 23rd April 2020 11:39:45 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -24,11 +24,11 @@ import { TableComponent } from './table/table.component';
 import { HeadingComponent } from './heading/heading.component';
 import { NotificationBannerComponent } from './notification-banner/notification-banner.component';
 import { WorldComponent } from './maps/world/world.component';
-import { ModalComponent } from './modal/modal.component';
+import { PreferenceModalComponent } from './preference-modal/preference-modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { ModalService } from './modal/modal.service';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
-import { FormsModule } from '@angular/forms';
+import { PreferenceModalService } from './preference-modal/preference-modal.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,10 +41,18 @@ import { FormsModule } from '@angular/forms';
     HeadingComponent,
     NotificationBannerComponent,
     WorldComponent,
-    ModalComponent,
+    PreferenceModalComponent,
     SlideToggleComponent,
   ],
-  imports: [CommonModule, RouterModule, FlexLayoutModule, OverlayModule, ScrollingModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    OverlayModule,
+    ScrollingModule,
+  ],
   exports: [
     HeaderComponent,
     SubHeaderComponent,
@@ -55,9 +63,9 @@ import { FormsModule } from '@angular/forms';
     HeadingComponent,
     NotificationBannerComponent,
     WorldComponent,
-    ModalComponent,
+    PreferenceModalComponent,
     SlideToggleComponent,
   ],
-  providers: [ModalService],
+  providers: [PreferenceModalService],
 })
 export class ComponentModule {}
