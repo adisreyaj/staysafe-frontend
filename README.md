@@ -1,12 +1,9 @@
 <h1 align="center">Welcome to Stay Safe 👋</h1>
 <p align="center">
-  <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
+  <a href="https://github.com/adisreyaj/staysafe-frontend/blob/master/LICENSE.md">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/badge/license-Apache License 2.0-yellow.svg" target="_blank" />
   </a>
     <img src="https://img.shields.io/badge/Angular-v9.1.0-red" alt="angular">
-  <a href="https://github.com/frinyvonnick/gitmoji-changelog">
-    <img src="https://img.shields.io/badge/changelog-gitmoji-brightgreen.svg" alt="gitmoji-changelog">
-  </a>
   <a href="https://twitter.com/AdiSreyaj">
     <img alt="Twitter: Adithya Sreyaj" src="https://img.shields.io/twitter/follow/AdiSreyaj.svg?style=social" target="_blank" />
   </a>
