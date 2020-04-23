@@ -18,6 +18,20 @@ StaySafe uses the power of Static Site Generation Powered by [Scully](https://gi
 
 ![StaySafe](./src/assets/images/stay-safe.png 'Stay Safe - Track, Learn and Care')
 
+## 🔥 Features
+
+- Based on Angular v9
+- Static Site Generation Powered by [Scully](https://github.com/scullyio/scully)
+- Lazy Loaded Modules and Modular design
+- No external design library used (like Angular Material)
+- All Icons used are SVGs (No extra library used)
+- SCSS Based styles
+- Maps Powered by [AmCharts](https://github.com/amcharts/amcharts4)
+- Charts Powered by [Ng2 Charts](https://github.com/valor-software/ng2-charts/)
+- Push Notifications Powered by Firebase
+- PWA Support (coming soon)
+- Coming soon
+
 ## 🚀 Usage
 
 Make sure you have the pre-requisites installed on your system. You can start by cloning/downloading the repo to your local system.

@@ -4,7 +4,7 @@
  * File Created: Tuesday, 21st April 2020 1:10:49 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 24th April 2020 12:08:29 am
+ * Last Modified: Friday, 24th April 2020 12:44:26 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -40,8 +40,6 @@ export class PreferenceModalComponent implements OnInit {
       countryCode: new FormControl('', [Validators.pattern(/([+]?\d){1,5}/)]),
       phone: new FormControl('', [Validators.pattern(/[0-9]{6,12}/), Validators.maxLength(12)]),
     };
-
-    this.preferenceForm.phone.valueChanges.subscribe((data) => console.log(data));
   }
 
   closeModal() {
