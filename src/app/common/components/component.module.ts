@@ -29,6 +29,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { PreferenceModalService } from './preference-modal/preference-modal.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     WorldComponent,
     PreferenceModalComponent,
     SlideToggleComponent,
+    SnackbarComponent,
   ],
   imports: [
     CommonModule,
