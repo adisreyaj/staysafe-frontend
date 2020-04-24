@@ -4,14 +4,14 @@
  * File Created: Sunday, 12th April 2020 2:54:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 16th April 2020 10:40:15 pm
+ * Last Modified: Friday, 24th April 2020 10:02:12 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import { Component, OnInit, NgZone, AfterViewInit, OnDestroy } from '@angular/core';
-import * as am4core from '@amcharts/amcharts4/core';
-import * as am4maps from '@amcharts/amcharts4/maps';
+import { useTheme, create, color, percent } from '@amcharts/amcharts4/core';
+import { MapChart, projections, MapPolygonSeries, HeatLegend } from '@amcharts/amcharts4/maps';
 import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { DataService } from '@staysafe/services/data.service';
@@ -26,7 +26,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./world.component.scss'],
 })
 export class WorldComponent implements OnInit, AfterViewInit, OnDestroy {
-  private map: am4maps.MapChart;
+  private map: MapChart;
   private mapData;
   constructor(private zone: NgZone, private dataService: DataService) {}
 
@@ -50,15 +50,15 @@ export class WorldComponent implements OnInit, AfterViewInit, OnDestroy {
       });
   }
   renderMap() {
-    am4core.useTheme(am4themes_animated);
+    useTheme(am4themes_animated);
     this.zone.runOutsideAngular(() => {
-      let map = am4core.create('world_map', am4maps.MapChart);
+      let map = create('world_map', MapChart);
       map.hiddenState.properties.opacity = 0; // this creates initial fade-in
       map.geodata = am4geodata_worldLow;
-      map.projection = new am4maps.projections.Miller();
+      map.projection = new projections.Miller();
 
       // Create map polygon series
-      const polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
+      const polygonSeries = map.series.push(new MapPolygonSeries());
       const polygonTemplate = polygonSeries.mapPolygons.template;
       polygonSeries.exclude = ['AQ'];
       polygonSeries.useGeodata = true;
@@ -73,15 +73,15 @@ export class WorldComponent implements OnInit, AfterViewInit, OnDestroy {
       polygonSeries.heatRules.push({
         target: polygonSeries.mapPolygons.template,
         property: 'fill',
-        min: am4core.color('#D3E3FC'),
-        max: am4core.color('#184EA6'),
+        min: color('#D3E3FC'),
+        max: color('#184EA6'),
       });
 
       // add heat legend
-      var heatLegend = map.chartContainer.createChild(am4maps.HeatLegend);
+      var heatLegend = map.chartContainer.createChild(HeatLegend);
       heatLegend.valign = 'bottom';
       heatLegend.align = 'left';
-      heatLegend.width = am4core.percent(50);
+      heatLegend.width = percent(50);
       heatLegend.series = polygonSeries;
       heatLegend.orientation = 'horizontal';
       heatLegend.padding(20, 20, 20, 20);

@@ -1,21 +1,10 @@
 /*
- * File: preference-modal.service.ts
- * Project: staysafe-frontend
- * File Created: Tuesday, 21st April 2020 1:10:49 am
- * Author: Adithya Sreyaj
- * -----
- * Last Modified: Thursday, 23rd April 2020 11:27:37 pm
- * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
- * -----
- */
-
-/*
  * File: modal.service.ts
  * Project: staysafe-frontend
  * File Created: Wednesday, 15th April 2020 2:09:43 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 23rd April 2020 11:25:14 pm
+ * Last Modified: Friday, 24th April 2020 10:25:28 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
