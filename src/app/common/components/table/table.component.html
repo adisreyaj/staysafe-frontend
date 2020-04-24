@@ -20,9 +20,9 @@
 
   <div class="table__body" *ngIf="data && data.data">
     <cdk-virtual-scroll-viewport
-      itemSize="data?.data?.length"
-      minBufferPx="40"
-      maxBufferPx="400"
+      itemSize="40"
+      minBufferPx="400"
+      maxBufferPx="800"
       [ngStyle]="{ height: data?.data?.length < 10 ? (data?.data?.length || 0) * 40 + 'px' : '400px' }"
     >
       <div class="table__item-row" *cdkVirtualFor="let item of data?.data; trackBy: trackBy">
