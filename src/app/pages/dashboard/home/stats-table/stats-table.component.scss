@@ -4,7 +4,7 @@
  * File Created: Thursday, 9th April 2020 12:47:16 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 10th April 2020 11:11:51 am
+ * Last Modified: Friday, 24th April 2020 9:01:42 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -20,6 +20,10 @@
 
 app-table {
   overflow-y: auto;
+}
+
+.search-field {
+  min-width: 300px;
 }
 @media screen and (max-width: $mobile) {
   .header {
