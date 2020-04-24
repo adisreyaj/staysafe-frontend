@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '@staysafe/env/environment';
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireMessagingModule,
     ScullyLibModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],

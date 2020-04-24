@@ -1,10 +1,16 @@
 <div>
   <app-heading [data]="tableHeading">
     <div class="header__actions" fxLayout="row wrap" fxLayoutAlign="space-between center">
-      <app-button-group class="header__date-switcher" [type]="'secondary'"></app-button-group>
+      <!-- <app-button-group class="header__date-switcher" [type]="'secondary'"></app-button-group> -->
       <div class="form-field form-field--icon header__search">
         <img src="../../../../assets/images/icons/search.svg" alt="Search" class="form-field__pre-icon" />
-        <input type="text" name="" id="" placeholder="Start typing to search" [formControl]="searchTerm" />
+        <input
+          type="text"
+          name="Search"
+          placeholder="Start typing to search"
+          [formControl]="searchTerm"
+          class="search-field"
+        />
       </div>
       <div class="header__report">
         <button class="stroked-btn btn-pre-icon btn--accent">
