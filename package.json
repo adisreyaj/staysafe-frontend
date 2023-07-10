@@ -14,7 +14,7 @@
   },
   "private": true,
   "dependencies": {
-    "@amcharts/amcharts4": "^4.9.13",
+    "@amcharts/amcharts4": "^4.10.36",
     "@amcharts/amcharts4-geodata": "^4.1.14",
     "@angular/animations": "~9.1.0",
     "@angular/cdk": "github:angular/cdk-builds",
